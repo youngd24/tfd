@@ -6,6 +6,8 @@ The Freight Depot, referred to here as "tfd", was a startup I worked at around 2
 
 The code here is REALLY old, like 15+ years old, and likely won't even work on a modern system. It's here for posterity, partially for me, and for the rest of the Internet. It's also here to show people my coding style, especially those I might go to work for. Call it a REALLY OLD resume.
 
+So, feel free to look around but beware, at the time I wasn't setting vi to convert tabs to whitespace, I'm not exactly sure why I didn't. 
+
 ## Structure
 
 ```
