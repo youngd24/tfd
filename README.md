@@ -1,6 +1,6 @@
-# Project Title
+# Darren Young / The Freight Depot
 
-One Paragraph of project description goes here
+The Freight Depot, referred to here as "tfd", was a startup I worked at around 2003 and was loosely based on the application from a previous startup named Digiship.
 
 ## Getting Started
 
