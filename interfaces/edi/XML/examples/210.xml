@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmledi SYSTEM "210.dtd">
+
+<xmledi doctype="210">
+   <transmission transmissionid="0012351">
+      <sender>RDWY</sender>
+      <receiver>DIGSHI</receiver>
+      <date>2003-01-01</date>
+      <time>09:49:00</time>
+   </transmission>
+   <invoice>
+      <header>
+         <invoicenumber>1651260660</invoicenumber>
+         <pronumber>1651260660</pronumber>
+         <bolnumber>152961</bolnumber>
+         <ponumber>NS</ponumber>
+         <paymentmethod>CC</paymentmethod>
+         <weightunit>L</weightunit>
+         <pickupdate>2003-01-01</pickupdate>
+         <deliverydate>2003-01-05</deliverydate>
+         <billingdate>2003-01-05</billingdate>
+         <totalweight>3200</totalweight>
+         <totalcharges>128.61</totalcharges>
+         <totalpieces>2</totalpieces>
+      </header>
+      <currency>
+         <code>USD</code>
+         <exchrate></exchrate>
+      </currency>
+      <remarks>
+         <message>Balance due in full</message>
+      </remarks>
+      <parties>      
+         <party type="SH (Shipper)">
+            <name>Joe Shipper</name>
+            <address>666 Elm St.</address>
+            <city>Badlands</city>
+            <stateprovince>TX</stateprovince>
+            <postalcode>12345</postalcode>
+            <countrycode>US</countrycode>
+         </party>
+         <party type="SF (Ship From)">
+            <name>Betty Lou Customer</name>
+            <address>69 Bang St.</address>
+            <city>Oakland</city>
+            <stateprovince>CA</stateprovince>
+            <postalcode>90277</postalcode>
+            <countrycode>US</countrycode>
+         </party>
+         <party type="CN (Consignee)">
+            <name>Bob Consignee</name>
+            <address>1212 Lane St.</address>
+            <city>Miami</city>
+            <stateprovince>FL</stateprovince>
+            <postalcode>22345</postalcode>
+            <countrycode>US</countrycode>
+         </party>
+         <party type="BT (Bill To Third Party)">
+            <name>The Freight Depot</name>
+            <address>191 E. Deerpath Suite 302</address>
+            <city>Lake Forest</city>
+            <stateprovince>IL</stateprovince>
+            <postalcode>60045</postalcode>
+            <countrycode>US</countrycode>
+         </party>
+      </parties>
+      <items>
+         <item id="1">
+            <description>Steel Shelves</description>
+            <billedquantity>2</billedquantity>
+            <ladingquantity>2</ladingquantity>
+            <weight>3200</weight>
+            <weightunit>L</weightunit>
+            <class>55</class>
+            <charges>128.61</charges>
+            <specialcharges></specialcharges>
+         </item>
+      </items>
+   </invoice>
+</xmledi>

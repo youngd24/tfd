@@ -1,0 +1,34 @@
+==============================================================================
+
+SYSCONFIG/README
+
+README file to explain what's in this directory
+
+$Id: README,v 1.2 2002/08/20 17:55:12 youngd Exp $
+
+Darren Young [darren@younghome.com]
+
+==============================================================================
+
+ChangeLog:
+
+$Log: README,v $
+Revision 1.2  2002/08/20 17:55:12  youngd
+* Added INTRODUCTION section and the start of the text
+
+==============================================================================
+
+
+INTRODUCTION
+------------
+
+This directory contains various system configuration files and scripts. Some
+are OS related while others are aplication specific. Many of them are tailored
+to a specific environment and dealt with mostly by makefiles throughout the
+sub-directories.
+
+Do not modify the critical configuration files directly, do that in here. Once
+you have your changes in place use the makefiles in here to install them to the
+required location. This is the best way to modify critical system and
+application configuration files since it enables you to revert to the previous
+version fairly easily.

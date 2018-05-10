@@ -1,0 +1,233 @@
+==============================================================================
+Digiship Rating Protocol Readme
+
+Contents Copyright (c) 2000, Digiship Corp.
+
+$Id: protocol.txt,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+Darren Young
+youngd@digiship.com
+
+==============================================================================
+
+INTRODUCTION
+------------
+
+During the development of the rate engine server and it's assiciated clients
+the decision was made to develop a standard protocol for the communication.
+Many design patterns from modern client/server Internet services were used as
+part of the basis for the development. This document is meant to provide a 
+clear and concise introduction on how to develop a client around the server.
+It would even be possible with this information to create a server in some
+other type of language. This is not meant to provide details on the specific
+server or client implementations in use. It can be more viewed as an RFC
+similar to those in use on the Internet today.
+
+VERSIONING
+----------
+
+The protocol described here is version 1.0 and is current as of December 2000.
+As the protocol matures over time, the version will of course be incremented.
+For minor protocol changes, the right side of the version will be moved up.
+Minor changes can be defined as those that will not break backwards
+compatibility with existing clients or servers. For major changes, the left
+side of the version will be incremented. Major changes are defined as those
+that could introduce backwards compatibility problems. This method of
+versioning is used so a client may ask a server for its version before
+commencing. An implementation may even provide differrent versions of the
+protocol to older clients using this method. For the physical implementation
+of this system, the server will have to respond to some type of request for
+the version(s) it supports. A good example of this type of client / server
+versioning is the Secure Shell protocol. The original version of the SSH
+protocol was 1.0, the newer one is 2.0. When a 1.0 client connects to a 2.0
+server, the 2.0 server recognizes this and reverts to the previous protocol if
+it is able to. This provides an obvious level of backwards compatibility that
+is important to operations.
+
+STATE
+-----
+
+The "session" that is maintained between the client and the server is often
+referred to as their state. The 2 major types of client / server
+communications is stateful or stateless based. Stateful communications are
+based on a constant conversation between the 2 endpoints. In stateful systems,
+only one side at a time may speak to the other and all messages need to be
+acknowledged before the next one is sent. Stateless conversations are the
+exact opposite. Messages are fired off to each other at any rate and no
+acknowledgements are made. Stateful protocols typically run over TCP while
+stateless are sent over UDP. The Digiship rating protocol is of a stateful
+based nature.
+
+CONVENTIONS
+-----------
+
+Throughout this document you will be presented with information about
+conversations between a server and a client. To show the direction that the
+conversation is traveling we will use the following conventions: SRVR and CLNT
+with a direction pointer. Take the following example:
+
+	CLNT -> SRVR : connect()
+	CLNT -> SRVR : "HELLO THERE"
+
+This says that the client sent the server the message "HELLO THERE". The quotes 
+are not part of the actual message, but meant to show that the words HELLO and
+THERE were all sent at the same time. The connect() text represents a program
+function, in this case a type of connect() method. This isn't the exact code 
+used for the connect(), but rather an identifier for a generic connect()
+method.
+
+DELIVERY
+--------
+
+THe specific implementations could be run over any low-level protocol such as
+TCP or UDP, however it is highly recommended to a guaranteed delivery protocol
+such as TCP. The implementations in use today are based on TCP. TCP guarantees
+the delivery of the messages to the remote and will resend packets if
+necessary. The rating protocol is a small, lightweight protocol and the added
+overhead of TCP will introduct minimal delay for the advantages it brings.
+
+BASIC DESIGN
+------------
+
+The protocol, at the basic level, is a command / response based
+implementation. This means that the client connects to the server, sends
+"commands" to the remote and waits for "responses". This is an extremely
+popular method for client / server systems to communicate. Examples of this
+type of protocol are SMTP and HTTP.
+
+The server response includes a primitive checksum so that the client may
+verify that it received all the data meant to be sent to it. Even though the
+TCP implementations are guaranteed delivery, this addtion to the protocol adds
+the ability for it to be run over other mechanisms such as UDP. The checksum
+is fairly primitive at this point and is subject to future changes. Perhaps an
+MD5 sum will be added to guarantee that the messages was delivered intact.
+
+While the primary goal of the protocol is to deliver pricing information, it
+is completely open and could be use to deliver just about anything. With the
+addition of new command / response sets, additional information could be sent
+over the network. The protocol was designed to be run over a TCP/IP based
+network, however it is of a high enough level that any other protocol could be
+used for delivery, even IPX/SPX.
+
+MESSAGES
+--------
+
+All messages between the client and the server are sent in ASCII text format
+and are sent in "network byte order". The conversion from host specific byte
+ordering to network byte ordering is usually performed by the lower level 
+protocols or language modules in use. The exception to this is C/C++ where
+the programmer is left to perform this.
+
+The last character of all messages will be the ASCII newline (\n) character.
+The newline character is ASCII character 10. Do a man ascii on UNIX to get
+a more detailed view of this. The addition of this character to the end of
+all messages is necessay to indicate the enf of a message (transmission, EOF,
+etc).
+
+Some pseudo code examples of why this is necessary:
+
+MESSAGE = NUL
+WHILE READ(CHAR) FROM SOCKET(CLIENT) :
+	IF CHAR EQUALS ASCII(\n) :
+		END WHILE
+	ELSE :
+		MESSAGE = MESSAGE + CHAR
+END WHILE
+
+This example would effectively grab a character at a time from the inbound
+socket connection and build up the message. When the newline is hit, the
+read would stop.
+
+DATA INTEGRITY
+--------------
+
+Even though the protocol will most likely be used on top of a guaranteed
+delivery mechanism such as TCP, a primitive checksum has been added just in
+case. When the server sends a response back to a client, it appends a colon
+(:) to the end of the message and the length of the data that was sent. The
+data checksum field is to include the newline (\n) character as well. The
+server requires that the client does the same to every message sent. As an 
+example:
+
+CLNT -> SRVR : "VERSION:8"
+SRVR -> CLNT : "PROGRAM VERSION 1.23 PROTOCOL VERSION 1.0:45"
+
+The colon (:) character gives the client and the server a unique identifier
+to parse the message on. The checksum value is the number of characters up to,
+but not including the colon (:).
+
+If for some reason the length of the received message doesn't match the
+checksum, the receiver should ask the remote to resend by simply erroring
+out with a checksum error.
+
+Repeat: All messages should have the :<len> appended to the end no matter
+what.
+
+Some more example pseudo code for checksum'ing:
+
+(LEFT,RIGHT) = SPLIT(":", MESSAGE)
+IF LENGTH(LEFT) != RIGHT :
+	CHECKSUM ERROR
+ELSE :
+	CHECKSUM GOOD
+
+
+USAGE
+-----
+
+Here's what life will look like from the beginning to the end of a session:
+
+CLNT -> SRVR : connect()
+SRVR -> CLNT : "READY:6"
+CLNT -> SRVR : "BASEPRICE&SRCZIP=60601&DSTZIP=45345&WEIGHT=10000&CLASS=55&LEN=55"
+SRVR -> CLNT : "1107.00:7"
+CLNT -> SRVR : "VERSION:8"
+SRVR -> CLNT : "PROGRAM VERSION 1.23 PROTOCOL VERSION 1.0:43"
+CLNT -> SRVR : "QUIT:5"
+SRVR -> CLNT : "BYE:4"
+CLNT -> SRVR : shutdown()
+SRVR -> CLNT : shutdown()
+
+COMMANDS
+--------
+
+HELP       - Retrieves help from the server
+              * No parameters required
+
+VERSION    - Requests the version of the server
+              * No parameters required
+
+INFO       - Information about the running server
+              * No parameters required
+
+SAVESTATS  - Saves servers info stats to a disk file
+              * No parameters required
+
+QUIT       - Closes a client connection (session)
+              * No parameters required
+
+BASEPRICE  - Retrieves a baseprice for a shipment
+              * Params:
+                 + Source Zip
+                 + Dest Zip
+                 + Weight
+                 + Class
+                 + Length
+              * Example:
+                 BASEPRICE?SRCZIP=60601&DSTZIP=45345&WEIGHT=10000&CLASS=55&LEN=55
+
+TRANSTIME  - Retrieves the time it will take to ship goods
+               * Params:
+                  + SCAC
+                  + Type
+                  + Source Zip
+                  + Dest Zip
+                  + Length
+               * Example:
+                  TRANSTIME&SCAC=RDWY&TYPE=LTL&SRCZIP=60601&DSTZIP=45345&LEN=55
+
+
+PROTOCOL VERSION(S)
+
+1.1 - Added TRANSTIME
+1.0 - Initial version with BASEPRICE

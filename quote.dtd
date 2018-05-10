@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!ELEMENT quote (timestamp, srczip, dstzip, weight, class, transitdays, price, servicecharges, totalcharges, status)>
+<!ATTLIST quote 
+    customerid CDATA #REQUIRED 
+    quoteid CDATA #REQUIRED >
+
+    <!ELEMENT timestamp (#PCDATA)>
+    <!ELEMENT srczip (#PCDATA)>
+    <!ELEMENT dstzip (#PCDATA)>
+    <!ELEMENT weight (#PCDATA)>
+    <!ELEMENT class (#PCDATA)>
+    <!ELEMENT transitdays (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+    <!ELEMENT servicecharges (#PCDATA)>
+    <!ELEMENT totalcharges (#PCDATA)>
+    <!ELEMENT status (#PCDATA)>

@@ -1,0 +1,37 @@
+# =============================================================================
+#
+# apache
+#
+# Apache logrotate configuration for Freight Depot's production system
+#
+# $Id: apache,v 1.2 2003/01/15 18:04:48 youngd Exp $
+#
+# Contents Copyright (c) 2002-2003, The Freight Depot
+#
+# Darren Young [darren_young@yahoo.com]
+#
+# =============================================================================
+#
+# Description:
+#
+# =============================================================================
+#
+# ChangeLog:
+#
+# $Log: apache,v $
+# Revision 1.2  2003/01/15 18:04:48  youngd
+#   * Added file header.
+#
+# =============================================================================
+
+/usr/local/apache/logs/access_log /usr/local/apache/logs/error_log {
+    missingok
+    sharedscripts
+    rotate 12
+    monthly
+    compress
+    postrotate
+	#/bin/kill -HUP `cat /var/run/httpd.pid 2>/dev/null` 2> /dev/null || true
+    /usr/local/apache/bin/apachectl restart > /dev/null 2>&1 || true
+    endscript
+}

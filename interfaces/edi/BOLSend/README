@@ -1,0 +1,67 @@
+# ============================================================================= #
+# README for BOLSender.pl                                                       #
+#                                                                               #
+# $Id: README,v 1.1 2003/01/07 20:48:08 youngd Exp $                            #
+#                                                                               #
+# Contents Copyright (c) 2001, Digiship Corp.                                   #
+#                                                                               #
+# Darren Young                                                                  #
+# youngd@digiship.com                                                           #
+#                                                                               #
+# ============================================================================= #
+
+In order to conduct shipping operations over the internet with our customers, 
+the need exists to somehow place the orders we receive with the carrier that
+the customer selected. There are a few options for this, first is the manual
+option. A person at Digiship could simply be notified that a new shipment is
+ready to be booked, then would call the carrier and place the order.
+
+The other option is to automate this somehow, and is the method that we have
+chosen. Most modern carriers have the ability to send and receive EDI documents
+with a VAN of some type. Of these documents, one of them is the 204 which is
+basically an order or Bill Of Lading (shipment).
+
+Now, EDI is an extremely legacy style of development and is heavily bound to 
+the mainframe world. Characters in certain places, fixed length records and
+all the like. We have enlisted the assistance of a VAN (Value Added Network)
+to convert our messages to the legacy EDI messages that the carriers support.
+
+On our end, we will be using XML as the source of information. XML has 
+become one of the more standard methods of data representation and is widely
+accepted in the EDI community.
+
+At a high level we will place all outbound shipment orders in XML format over
+the Internet to our VAN. They in turn will convert this XML order to an EDI
+204 document and transmit it on to the carrier. From that point, the shipment
+will be assumed to be booked. Note: functional acknowledgements are available
+sometimes with an EDI 990 or 997 document.
+
+This is the function that the BOLSender program will handle, gathering a list
+of all the new shipments, turn them into XML order and send them to the VAN over
+the Internet via FTP.
+
+For the development of the XML documents, the program uses a template model
+of operation. In the case of a BOL, there is a template named 204.tmpl in
+this directory. This file contains the layout of the document that we have
+agreed upon with our VAN. There are a series of markup tags in this file
+that are identified with double % symbols. These are the tags that will be
+replaced with live data upon generation of new BOL documents.
+
+The program is extremely configurable via a text configuration file. The 
+one that has been used for development and testing is called sender.cfg
+and is located in this directory. It is well documented inside of itself,
+so I will not go into detail here. If you wish to use an alternate config
+file for the program, there is a command line parameter of --config-file
+that will point BOLSender.pl to another configuration source.
+
+While this program is meant to be run in the background and "wake up" every
+once in a while, it may be run in interactive mode if needed. Simply set a
+flag in the configuration file and it will ask you before it does anything.
+
+
+Darren Young
+March 2001
+
+
+Damn this document is old, perhaps I should update it sometime. The process
+hasn't changed in 2 years though. :-)

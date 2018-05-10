@@ -1,0 +1,33 @@
+<?xml version = "1.0"?>
+
+<!DOCTYPE xmledi SYSTEM "xmledi.dtd">
+
+<xmledi document="214" revid="1.0">
+  <transmission>
+    <sender>RDWY</sender>
+    <receiver>DIGSHI</receiver>
+    <date>2001-03-01</date>
+    <time>15:45:05</time>
+  </transmission>
+
+  <shipment>
+    <header>
+      <pronumber>21412414</pronumber>
+      <bolnumber>10003</bolnumber>
+      <ponumber>213-ASD-12</ponumber>
+    </header>
+		
+    <status>
+      <code>IN TRANSIT</code>
+      <reason>Picked up at Chicago terminal</reason>	
+      <city>Chicago</city>
+      <state>IL</state>
+      <equipment>LTL</equipment>
+      <equipmentnum>213123</equipmentnum>
+      <date>2001-03-01</date>
+      <time>15:45:05</time>
+      <timezone>EST</timezone>
+      <notes>Some notes</notes>
+    </status>
+  </shipment>
+</xmledi>

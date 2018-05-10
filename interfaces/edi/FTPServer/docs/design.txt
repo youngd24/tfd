@@ -1,0 +1,38 @@
+
+EDIFTP Server Basic Design
+
+$Id: design.txt,v 1.1 2002/10/20 20:24:22 youngd Exp $
+
+
+INTRODUCTION
+
+The server in its basic form is a standard FTP server. It will accept connections from RFC959
+standard FTP clients and will look as any other FTP server. They differences are that it only 
+implements a subset of the FTP commands and it parses the inbound XML and stores them in the
+database.
+
+THE PROCESS
+
+Listen for incoming connections on TCP port 21.
+Authenticate users from a password file (or the database).
+Upon a client issuing a STOR command, ask for the remote TCP port to send to.
+Check permissions for requested file and directory.
+If permissions are ok, initiate a connection to the client at that port.
+Retrieve the file.
+If the document is one of the XMLEDI docs, spawn a thread to:
+	Validate it against the DTD.
+		If bad:
+			Send the client the FTP upload error code.
+		If good:
+			Parse the doc to retrieve:
+				doctype, revid, sender, shipnum, ponum
+			If the revid is not supported:
+				Send the client the FTP upload error code.
+			If the revid is supported:
+				Store the doc:
+					In the directory for the sender SCAC
+					Filename as doctype-shipnum-ponum.xml
+				Send the client the FTP OK to proceed code
+
+Spawn a thread to process the file
+	Parse the XML document and store in the database

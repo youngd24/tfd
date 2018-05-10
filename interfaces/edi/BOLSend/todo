@@ -1,0 +1,14 @@
+
+BOLSender.pl TODO LIST
+
+$Id: todo,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+Darren Young
+youngd@digiship.com
+
+
+TODO
+----
+Clean up comments and turn the necessary ones into POD documentation
+Write a Makefile to create binaries on UNIX and Windows
+Add a doc tag to the Makefile to create HTML POD documentation

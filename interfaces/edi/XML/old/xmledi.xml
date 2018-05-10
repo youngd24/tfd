@@ -1,0 +1,114 @@
+<?xml version = "1.0"?>
+
+<!DOCTYPE xmledi SYSTEM "xmledi.dtd">
+
+<xmledi document="204" revid="1.4">
+	
+	<transmission>
+	
+		<sender>RDWY</sender>
+		<receiver>DIGSHI</receiver>
+		<date>2001-12-12</date>
+		<time>15:45:05</time>
+
+	</transmission>
+
+	<shipment>
+
+		<header>
+		
+			<pronumber>21412414</pronumber>
+			<bolnumber>213902139</bolnumber>
+			<ponumber>213-ASD-12</ponumber>
+		
+		</header>
+		
+		<location>
+		
+			<party type="origin">
+			
+				<name>ABC Company</name>
+				<name>Shipping Dept</name>
+				<address>1234 ABC Rd.</address>
+				<address>Suite 563</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60614</zip>
+				<country>USA</country>
+			
+			</party>
+			
+			<party type="destination">
+			
+				<name>ABC Company</name>
+				<name>Shipping Dept</name>
+				<address>1234 ABC Rd.</address>
+				<address>Suite 563</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60614</zip>
+				<country>USA</country>
+			
+			</party>
+			
+			<party type="billing">
+			
+				<name>ABC Company</name>
+				<name>Shipping Dept</name>
+				<address>1234 ABC Rd.</address>
+				<address>Suite 563</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60614</zip>
+				<country>USA</country>
+			
+			</party>
+		
+		</location>
+		
+		<product>
+		
+			<description>Steel Wheels</description>
+			<weight>10000</weight>
+			<class>50</class>
+			<units>10</units>
+			<hazmat>N</hazmat>
+							
+		</product>
+		
+		<pickup>
+		
+			<pickupdate>2000-11-12</pickupdate>
+			<pickupafter>05:00:00</pickupafter>
+			<pickupbefore>16:00:00</pickupbefore>
+					
+		</pickup>
+		
+		<services>
+			
+			
+		
+		</services>
+		
+		<status>
+			
+			<code>D1</code>
+			<reason>Consignee At Fault</reason>	
+			<city>Ithaca</city>
+			<state>NY</state>
+			<equipment>TL</equipment>
+			<equipmentnum>213123</equipmentnum>
+			<date>2001-10-12</date>
+			<time>13:12:31</time>
+			<timezone>EST</timezone>
+			<notes></notes>
+				
+		</status>
+		
+		<invoice>
+		
+		</invoice>
+	
+	</shipment>
+
+</xmledi>

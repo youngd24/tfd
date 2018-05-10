@@ -1,0 +1,37 @@
+
+EDIServer TODO
+
+When we're parsing a document, make sure that certain methods are called based on the type 
+of document. For example, if the document is a 204, then there is no reason to go and try
+to get status information. As another example, when we enter the 214 specific methods, such as
+the retrievel of statuses, we need to make sure we're actually parsing a 214 and not some other document type.
+
+Dear sir,
+
+I guess I will open with the statement that as my address shows, I am not a Vermont resident. However, I was moved to send this in to you in response to an article I just read on ZDNet regarding your stance(s) on the Internet.
+
+I myself am a technology professional, I have worked on and around the Internet for the past 10 years. My father has been doing the same thing for the past 30 (20 years on the Internet), in fact, he was once employed at Case Western University where he worked on some of the original portions of the network.
+
+I am writing to you in the hopes that you, having had exposure to the results of technology, can perhaps help with one of our problems. I work with many other fine people in this industry, some of the hardest working people I have ever met, however the number of American employees is starting to bother me. In the past 2-4 years especially this number has dwindled more and more to foreign competition.
+
+Now, don't get me wrong, some of the people I have had the pleasure of working with from India, Pakistan and China are simply amazing. The sense of work ethic, the value of doing a good job and the chance to succeed are so important to them. I wonder why these values seem so less present in the American counterparts in the same offices?
+
+When I was younger, I cooked for a living, working 70+ hours per week and barely making anything. After marrying and starting to have children, I knew this would not work anymore. So, I turned to the one resource I had available at the time, my father. He mentored me along and helped me down the path of success. I owe him everything that I have today. Without this "push" into computers, I would have cooked for the rest of my life never knowing the true potential of what is out there.
+
+There has to be some way, on a national level, to have some type of program to help children know that a technology profession is viable, enjoyable and profitable. My children are quite familiar with technology, are avid users of the Internet and may well someday do what I do for a living. Wow, third generation...
+
+We as Americans have one key virtue that I am always reminded of by my foreign counterparts: ingenuity. We need to foster this and take advatange of it now and forever.
+
+There needs to be an increased level of technology in the public school system. There needs to be more access to computers in these schools. And by all means, they should not be Macintosh systems. As an IT manager for the past 8 years, I have yet to see a US company with more than 10 Mac's in the entire organization. Skills of this type will do these students little good when released into the work force.
+
+The impoverished areas need access to technology the same as the rest. If you do indeed read this email, I have some heart wrenching stories of people I have worked with that come from very poor backgrounds and made new lives in the IT industry. Perhaps part of the "so called" Budget Surplus could help out here, sorry the Republican shows through sometimes. I refer to myself though as a "RepubliCrat" often leaning from side to side on many issues. In fact, I beleive that both parties are right in most regards, guess I am not the only one based on last November.
+
+Perhaps a "mini" computer science at the high schools level would be appropriate. If it were up to me, of course I would make it mandatory to graduate, but then I am not a Senator, Govenor or even a Secretary of Education :-(
+
+I have often thought that I would have loved to have been a teacher, and now would like to extend that to have been a computer science teacher. I, however, came up the hard way, with tremendous work and no "formal" education. My lack of a degree at this point would certainly stop this from happening. Perhaps next time around I will have the opportunity to help others realize the level of success that I have had. For now, I will help those that I work with by motivating, teaching and providing mentoring.
+
+The other area I have to provide input about is that of encryption. The policies that we have in place are simply inappropriate. The export restrictions have been played to the point of almost a joke. This truly hurts us in the long run. That ingenuity I have spoken of is being put down especially in this area. US companies are afraid to invest more in this business as the cost of staying legal is simply too high. The ironic part is that this is the single area that the Internet as a whole may benefit from. People, politicians and other speak of "Privacy" on the Internet today, there's no way to be private when encryption is so far out of reach.
+
+We as the country that invented the Internet, have fostered its growth and have made it what it is today, are in the best position to put forth our strengths and achieve more. However, regulations like those on encryption will simply prevent anything from happening. We need to increase the level of technology education in schools today or in 10 years our edge will be lost.
+
+Anyways, I sent this message to you as you seem to be an extremely intelligent, forward thinking and open-minded person. Regardless of political ties, you seem to be a man willing to put forth your views, especially on technology. I respect people that aren't afraid to let their minds be known, good bad or the other.

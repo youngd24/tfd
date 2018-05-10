@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    214.dtd
+
+    214 Document Type Definition
+
+    $Id: 214.dtd,v 1.1 2003/01/07 22:39:37 youngd Exp $
+
+    Contents Copyright (c) 2002-2003, The Freight Depot
+
+    Darren Young [darren_young@yahoo.com]
+-->
+
+<!ELEMENT xmledi (transmission, shipment+)>
+<!ATTLIST xmledi doctype CDATA #REQUIRED >
+
+    <!ELEMENT transmission (sender, receiver, date, time)>
+    <!ATTLIST transmission transmissionid CDATA #REQUIRED >
+
+        <!ELEMENT sender (#PCDATA)>
+        <!ELEMENT receiver (#PCDATA)>
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT time (#PCDATA)>
+        
+    <!ELEMENT shipment (header, product, status+)>
+
+        <!ELEMENT header (pronumber, bolnumber)>
+            <!ELEMENT pronumber (#PCDATA)>
+            <!ELEMENT bolnumber (#PCDATA)>
+            
+        <!ELEMENT product (weightqualcode, weightunitcode, weight)>
+            <!ELEMENT weightqualcode (#PCDATA)>
+            <!ELEMENT weightunitcode (#PCDATA)>
+            <!ELEMENT weight (#PCDATA)>
+
+
+        <!ELEMENT status (code, reason, city, state, equipmentnum, date, time, timezone)>
+            <!ELEMENT code (#PCDATA)>
+            <!ELEMENT reason (#PCDATA)>
+            <!ELEMENT city (#PCDATA)>
+            <!ELEMENT state (#PCDATA)>
+            <!ELEMENT equipmentnum (#PCDATA)>
+            <!ELEMENT date (#PCDATA)>
+            <!ELEMENT time (#PCDATA)>
+            <!ELEMENT timezone (#PCDATA)>

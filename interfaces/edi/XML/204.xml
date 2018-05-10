@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?kli format=BOLDATA sender=DIGSHI receiver=CTII?>
+<!DOCTYPE xmledi SYSTEM "204.dtd">
+
+<xmledi doctype="204">
+
+  <transmission id="152783-1042146837">
+	  <timestamp>2003-01-09 15:13:57</timestamp>
+      <mode>TEST</mode>
+      <ack>N</ack>
+  </transmission>
+
+  <shipment>
+    <header>
+	  <type>ORIGINAL</type>
+	  <paymentmethod>COLLECT</paymentmethod>
+      <bolnumber>152783</bolnumber>
+      <ponumber></ponumber>
+    </header>
+    <location>
+      <party type="ORIGIN">
+        <name>Northwood Plastics</name>
+        <address1>3220 Crocker Ave.</address1>
+        <address2></address2>
+        <city>SHEBOYGAN</city>
+        <state>WI</state>
+        <zip>53081</zip>
+        <contact>Peter Bins</contact>
+        <phone>800-571-0158</phone>
+      </party>
+      <party type="DESTINATION">
+        <name>Tapemark</name>
+        <address1>150 Marie Ave. E</address1>
+        <address2></address2>
+        <city>SAINT PAUL</city>
+        <state>MN</state>
+        <zip>55118</zip>
+        <contact>Jim Maloney</contact>
+        <phone>651-450-8773</phone>
+      </party>
+      <party type="BILLING">
+        <name>THE FREIGHT DEPOT</name>
+        <address1>191 E. DEERPATH</address1>
+        <address2>SUITE 302</address2>
+        <city>Lake Forest</city>
+        <state>IL</state>
+        <zip>60045</zip>
+        <contact>CUSTOMER SERVICE</contact>
+        <phone>847-283-0092</phone>
+      </party>
+      <party type="CARRIER">
+        <name>Central Transport International</name>
+        <scac>CTII</scac>
+      </party>
+    </location>
+    <product>
+      <description>1 pallet with two drums of magnetic material</description>
+      <weight>475</weight>
+      <class>55</class>
+      <units>1</units>
+      <packaging>PALLET</packaging>
+      <hazmat>N</hazmat>
+      <hazmatphone></hazmatphone>
+    </product>
+    <pickup>
+      <pickupdate>2003-01-09</pickupdate>
+      <pickupafter>08:00:00</pickupafter>
+      <pickupbefore>15:00:00</pickupbefore>
+    </pickup>
+    <services>
+      
+    </services>
+  </shipment>
+
+</xmledi>

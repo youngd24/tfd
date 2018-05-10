@@ -1,0 +1,75 @@
+
+EDIServer Installation Notes
+
+Contents Copyright (c) 2000, 2001 Digiship Corp.
+
+$Id: install.txt,v 1.1 2002/10/20 20:24:22 youngd Exp $
+
+Darren Young
+youngd@digiship.com
+
+
+
+INSTALLATION
+============
+
+LINUX
+-----
+
+For a Linux based installation, all of this has been tested against a RedHat 6.2 machine with
+current RedHat patches and Glibc 2.1.1. To start off, the factory Perl installation must be 
+removed since it's version 5.00503 and we have to run against Perl 5.6.0 at least. The reason
+is because of our constant use of the 'our' command as well as certain modules.
+
+Now, the first item ot overcome is how to install the new Perl interpreter. You can simply 
+obtain the source code and compile/install that or opt for an RPM. The downside of the source
+based installation is the fact that it is difficult to remove. The downside of the RPM is that
+there isn't one available from RedHat for 6.2. To overcome these issues, I simply created an RPM
+for Perl 5.6 based on the SPEC file that ships with RedHat 7.0 (since it includes Perl 5.6). It's
+currently located in the sysops/install directory for installation. It hasn't been thoroughly
+tested against 6.2, but I see no reason for it to cause problems.
+
+The first thing to do is to remove the old version. If you simply try to erase the package
+using RPM it won't work. RedHat keeps tracks of the dependencies between RPM packages and
+there are quite a few that require Perl. So, to get around this, use the --nodeps option
+for RPM: rpm --erase --nodeps perl and it should work.
+
+Next, install the Perl 5.6 RPM package from the sysops install location with: rpm -ivh perl-5.6.rpm
+and that's it. If you wish to see the files it installs do an rpm -qilp on the file itself.
+
+Next are the required moduls and their underlying libraries. These all have to be installed
+for the server to operate. If you don't follow this and install them, it won't work.
+
+Let's start with the Expat library. It may be obtained from
+http://sourceforge.net/projects/expat, I used 0.95-1 for this document. Download it somewhere that
+you can use to build it from, let's say /usr/local/build. cd to /usr/local/build and execute:
+tar -zxvf expat-0.95-1.tar.gz. Next, cd into export-0.95-1 and execute ./configure. When that's
+complete, run make then make install. That should put the libraries in /usr/local/lib and the 
+headers in /usr/local/include for future reference.
+
+Next, let's move on to the required Perl modules. First is the module that actually uses the library
+that we just installed, XML::Parser. The best way to download and work with Perl modules on UNIX is
+to use the CPAN module. This is true if you're not using the ActiveState Perl distribution for 
+Linux which comes with a utility called PPM that does the same job. We're assuming here that you're
+not using the ActiveState Perl, but our Perl 5.6 RPM.
+
+To launch CPAN, execute: perl -MCPAN -eshell from the command line. The first time it is run you'll
+be prompted for a tremendous amount of information. Fill it in and get to the cpan> prompt. The 
+first time you run it, you should obtain a copy of the index, so do: reload index. After that's done
+build the list of bundles with: autobundle. When that's done, obtain and install a fresh copy of
+CPAN with: install Bundle::CPAN. When it's done, you'll be prompted for the same configuration
+info that you filled in earlier. Yes, you have to do it again, I don't know why. After you return
+to the cpan> prompt, install the libnet package: install Bundle::libnet. When you get back to the
+cpan> prompt you;re ready to go.
+
+Let's install the XML::Parser library manually first so simply do: get XML::Parser. That will simply
+download and untar the package into the cpan cache directory. When that's down, let's go to that
+directory and work on it manualy with: look XML::Parser which simply launches a shell in the
+correct directory. Next we have to build the Makefile for the build to work with:
+	Perl Makefile.PL EXPATLIBDIR=/usr/local/lib EXPATINCDIR=/usr/local/include
+When that's done, do a make to build the package then a make install to install it. There's no RPM
+for this, at least that I have found. You can type exit to break out of this shell and return to the
+CPAN module.
+
+Now we need to install the XML::DOM module that wraps around the XML::Parser module. This can be 
+downloaded and installed from the cpan> prompt with: install XML::DOM

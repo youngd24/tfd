@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<TITLE>Digiship::Debug</TITLE>
+<LINK REL="stylesheet" HREF="pod.css" TYPE="text/css">
+<LINK REV="made" HREF="mailto:root@fett.internal.younghome.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#description">DESCRIPTION</A></LI>
+	<LI><A HREF="#installation">INSTALLATION</A></LI>
+	<LI><A HREF="#methods">METHODS</A></LI>
+	<LI><A HREF="#usage">USAGE</A></LI>
+	<LI><A HREF="#example output">EXAMPLE OUTPUT</A></LI>
+	<LI><A HREF="#version">VERSION</A></LI>
+	<LI><A HREF="#copyright">COPYRIGHT</A></LI>
+	<LI><A HREF="#authors">AUTHORS</A></LI>
+	<LI><A HREF="#see also">SEE ALSO</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>Digiship::Debug</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<pre>use Digiship::Debug;</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="description">DESCRIPTION</A></H1>
+<P>Digiship::Debug is used in instances where a common debug interface is desired.
+Rather than creating a debug method in every perl script or module, the same
+results may be obtained from this module. Additionally, all the debug messages
+that an application generates will all have the same look and feel.</P>
+<P>The ideal way to enable debugging on a global scale within an application is to
+set a top-level (global) variable called debug that sets the level within this
+module. In a perfect world, this debug variable would come from a source outside
+the script itself such as from the command line or from a configuration file.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="installation">INSTALLATION</A></H1>
+<P>This module is installed by default with the EDIServer application.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="methods">METHODS</A></H1>
+<li><b>setDebugLevel()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Sets the level of messages to print
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : String(level) [0 = off, 1 = on]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br><li><b>getVersion()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Returns the version of the modue
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : String(version)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br><li><b>getName()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Returns the name of the module
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br><li><b>print()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Prints a properly formatted debug message to STDERR
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="usage">USAGE</A></H1>
+<pre>
+# Load the module
+use Digiship::Debug;
+<br>
+# Create a new instance of it
+$Debug = Digiship::Debug->new();
+<br>
+# Set the debug level to 1
+$Debug->setDebugLevel(1);
+<br>
+# Print a debug message
+$Debug->print("Debug message");
+<br>
+# Or like this
+$Debug->print("Hello from " . hostname());
+<br>
+</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="example output">EXAMPLE OUTPUT</A></H1>
+<pre>
+Calling Debug->getName() [OK] Got: "Digiship Debugging Module" 
+Calling Debug->getVersion() [OK] Got: "1.3" 
+Calling Debug->print(): &lt;Sun Feb 10 03:09:00 2002&gt; &lt;Debug&gt; Debug->print() [OK] 
+</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="version">VERSION</A></H1>
+<P>$Id: Debug.html,v 1.1.1.1 2002/07/13 04:30:34 youngd Exp $</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="copyright">COPYRIGHT</A></H1>
+<P>Contents Copyright (c) Digiship Corp.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="authors">AUTHORS</A></H1>
+<P>Darren Young <A HREF="mailto:[darren_young@yahoo.com]">[darren_young@yahoo.com]</A></P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="see also">SEE ALSO</A></H1>
+<P><A HREF="/docs/Digiship/Error.html">the Digiship::Error manpage</A></P>
+<P><A HREF="#__index__"><SMALL>Top</SMALL></A></P>
+
+</BODY>
+
+</HTML>

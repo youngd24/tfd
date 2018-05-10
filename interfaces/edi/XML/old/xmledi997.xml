@@ -1,0 +1,17 @@
+<?xml version = "1.0"?>
+
+<?kli format=SSMDATA sender=DIGSHI rrr=TEST?>
+
+<!DOCTYPE xmledi SYSTEM "xmledi.dtd">
+
+
+<xmledi document="997" revid="1.0">
+
+	<transmission acknowledge="Y">
+	
+		<ack>1</ack>
+		<refid>12312323</refid>
+
+	</transmission>
+
+</xml>

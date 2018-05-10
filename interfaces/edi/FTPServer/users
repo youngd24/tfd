@@ -1,0 +1,19 @@
+#
+# Digiship EDI/FTP User Database
+#
+# $Id: users,v 1.1 2002/10/20 20:28:48 youngd Exp $
+# 
+# Contents Copyright (c) 2000,2001 Digiship Corp.
+#
+# Darren Young
+# youngd@digiship.com
+#
+# Format:
+#  username:password
+#
+#  Passwords are crypted with the UNIX crypt() function
+#
+editest:$apr1$Nx2.....$aSZKrR.o279czbsLKm9n2.
+youngd:EKWKnlnzlqHWo
+jstrope:nLG0pfo39VMMw
+ksedi:8vga8UiKwHHD.

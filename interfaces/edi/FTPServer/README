@@ -1,0 +1,18 @@
+
+
+This is all really old code. Parts have been robbed to make the new EDI Server.
+
+Originally, we wanted to create our own FTP server which is mostly done
+in this code. The remote would simply issue a SITE EDI command to throw
+the server into EDI mode, otherwise it would act like a regular FTP server.
+
+Well, I didn't have time to maintain that code at The Freight Depot like I
+did at Digiship, so I dumped it and decided to use a "regular" FTP server. 
+Actually, this is a much better way of doing it since most OS FTP servers
+have much more functionality than could be written quickly. That, and it
+can run on MS or UNIX with whatever FTP server you want.
+
+Anyways, check the directory ../EDIServer for the newer one.
+
+Oh, and the XMLEDI modules are pretty much crap at this point. The XMLEDI
+document structure has changed a lot since these were written.

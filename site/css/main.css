@@ -1,0 +1,86 @@
+.links_inactive {
+
+	   font-family:		verdana;
+	   font-size:		10;
+	   text-decoration: none;
+	   color:			A20E07;
+	   
+}
+
+.links_general {
+
+	   font-family:		"Trebuchet MS",verdana;
+	   letter-spacing:	2px;
+	   font-size:		11;
+	   color:			A20E07;
+	   line-height:		18px;
+
+}
+
+.links_general2 {
+
+	   font-family:		"Trebuchet MS",verdana;
+	   letter-spacing:	2px;
+	   font-size:		10;
+	   color:			A20E07;
+	   line-height:		18px;
+
+}
+
+.links_learnmore {
+
+	   font-family:		"Trebuchet MS",verdana;
+	   font-size:		10;
+	   color:			A20E07;
+	   height:			10px;
+
+}
+
+.toolbarlinks {
+
+		font-family:	verdana;
+		font-size:		10;
+		text-decoration: none;
+		color:			#ffffff;
+		height:			10;
+
+}
+
+.internallink {
+
+        font-family: verdana;
+        font-size: 10;
+        text-decoration: none;
+        color: blue;
+}
+
+.internallink:hover {
+        font-family: verdana;
+        font-size: 10;
+        text-decoration: underline;
+        color: blue;
+}
+
+.toolbarlinks:hover  { color: white; text-decoration: none; background-color: 555555 }
+
+.links_inactive:hover  { color: white; text-decoration: none; background-color: A20E07 }
+
+a:hover { text-decoration: none; }
+
+.calendar {
+	font-family: verdana;
+	font-size: 10;
+
+	color: #000000;
+	border:1 #000000 solid;
+}
+.calendarHeader {
+	border:1 #000000 solid;
+}
+
+.reporttext {
+
+	font-family: tahoma;
+	font-size:	11px;
+	
+}

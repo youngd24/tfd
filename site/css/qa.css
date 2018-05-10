@@ -1,0 +1,42 @@
+<!--
+==============================================================================
+
+
+qa.css
+
+Internal Style Sheet
+
+$Id: qa.css,v 1.2 2002/08/21 17:49:32 youngd Exp $
+
+Contents Copyright (c) 2002, Transport Investments, Inc.
+
+Darren Young [darren@younghome.com]
+
+==============================================================================
+
+ChangeLog:
+
+$Log: qa.css,v $
+Revision 1.2  2002/08/21 17:49:32  youngd
+* Added header
+
+==============================================================================
+-->
+
+.t1  { 
+    font-family : verdana; 
+    font-size   : 10 px;  
+    color       : blue;  
+} 
+
+.t2  { 
+    font-family : verdana; 
+    font-size   : 11 px;  
+    color       : black;  
+} 
+
+.a2 {
+    font-family : verdana;
+    font-size   : 11 px;
+    color       : blue;
+}

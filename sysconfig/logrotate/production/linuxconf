@@ -1,0 +1,14 @@
+# Logrotate file for Linuxconf RPM
+
+/var/log/htmlaccess.log {
+	notifempty
+	nocompress
+	weekly
+}
+
+/var/log/netconf.log {
+	nocompress
+	monthly
+}
+
+

@@ -1,0 +1,66 @@
+<?xml version = "1.0"?>
+
+<?kli format=SSMDATA sender=DIGSHI rrr=TEST?>
+
+
+<!DOCTYPE xmledi SYSTEM "xmledi.dtd">
+
+
+<xmledi document="214" revid="1.0">
+
+  <transmission>
+
+    <sender>RDWY</sender>
+
+    <receiver>DIGSHI</receiver>
+
+    <date>2001-03-01</date>
+
+    <time>15:45:05</time>
+
+  </transmission>
+
+
+
+  <shipment>
+
+    <header>
+
+      <pronumber>21412414</pronumber>
+
+      <bolnumber>10003</bolnumber>
+
+      <ponumber>213-ASD-12</ponumber>
+
+    </header>
+
+		
+
+    <status>
+
+      <code>IN TRANSIT</code>
+
+      <reason>Picked up Dayton</reason>	
+
+      <city>Dayton</city>
+
+      <state>OH</state>
+
+      <equipment>TL</equipment>
+
+      <equipmentnum>213123</equipmentnum>
+
+      <date>2001-03-01</date>
+
+      <time>15:45:05</time>
+
+      <timezone>EST</timezone>
+
+      <notes>Package changed trailers</notes>
+
+    </status>
+
+  </shipment>
+
+</xmledi>
+

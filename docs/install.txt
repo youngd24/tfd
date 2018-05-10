@@ -1,0 +1,49 @@
+# ====================================================================
+#
+# MASTER DIGISHIP SYSTEM INSTALLATION README
+#
+# $Id: install.txt,v 1.1.1.1 2002/07/13 04:30:34 youngd Exp $
+#
+# This document describes the process of bringing up the digiship
+# "system" as a whole. By the end of this document the reader will
+# have all the necessary components to run digiship from.
+#
+# Darren Young
+#
+# =====================================================================
+
+INTRODUCTION
+------------
+
+REQUIREMENTS
+------------
+	* ActiveState Active Perl v. 5.6.1 build >= 630
+	* Various Perl Modules:
+		- XML::DOM
+		- DBI
+	* MySQL 3.23.41
+	* Apache 1.3.22
+
+DATABASE
+--------
+
+WEB SERVER
+----------
+
+RATING
+------
+
+TRANSIT TIMES
+-------------
+
+EDI
+---
+
+BILLS OF LADING
+---------------
+
+ACCOUNTING
+----------
+
+CONCLUSION
+----------

@@ -1,0 +1,130 @@
+<?xml version = "1.0"?>
+
+<!-- the xmledi is the root element of the document. it contains a single transmission, and one or more shipments -->
+<!ELEMENT xmledi (transmission?, shipment+)>
+<!-- the document attribute signifies the edi document type ie (214, 204, 211, 990, 997 etc) -->
+<!ATTLIST xmledi document CDATA #IMPLIED>
+<!-- the revid attribute lists version of specified document -->
+<!ATTLIST xmledi revid CDATA #IMPLIED>
+	
+	<!-- the transmission element (used only once per xmledi) describes various transmission info -->
+	<!ELEMENT transmission (sender, receiver, date, time, (ack, refid)?)>
+
+	<!-- acknowledge attribute for the transmission tag allows for the request of a 990, 997 etc (value should be 'Y' or 'N') -->
+	<!ATTLIST transmission acknowledge CDATA #IMPLIED>
+	
+	<!-- this is the transmission id -->
+	<!ATTLIST transmission transmissionid CDATA #IMPLIED>
+
+		<!-- this is the carrier where the transmission originated -->
+		<!ELEMENT sender (#PCDATA)>
+		<!-- this is the destination company -->
+		<!ELEMENT receiver (#PCDATA)>
+		<!-- this is the date of the transmission -->
+		<!ELEMENT date (#PCDATA)>
+		<!-- this is the time of the transmission -->
+		<!ELEMENT time (#PCDATA)>
+		<!-- this functional acknowledgement allows carriers to send back transmission ok (value should be 0 or 1) -->
+		<!ELEMENT ack (#PCDATA)>
+		<!-- this is the transmissionid the ack bit references to -->
+		<!ELEMENT refid (#PCDATA)>
+				
+	
+	<!-- the shipment element (can occur once or more per transmission) contains any shipment-specific info -->
+	<!ELEMENT shipment (header, location?, product?, pickup?, services?, status*, invoice?, pod?)>
+		
+		<!-- the header element describes any shipment-specific numbers or codes -->
+		<!-- header must occure once -->
+		<!ELEMENT header (pronumber, bolnumber, ponumber?)>
+		
+			<!-- the pro number of the carrier -->
+			<!ELEMENT pronumber (#PCDATA)>
+			<!-- digiship's bill of lading number -->
+			<!ELEMENT bolnumber (#PCDATA)>
+			<!-- shipper's po -->
+			<!ELEMENT ponumber (#PCDATA)>
+		
+		<!-- the location element contains any addresses associated with the shipment -->
+		<!-- location can appear never or once -->
+		<!ELEMENT location (party*)>
+		
+			<!ELEMENT party (name*, address*, city?, state?, zip?, country?)>
+			<!-- type describes party. valid values are - (origin, destination, billing, carrier, broker, reroute) -->
+			<!ATTLIST party type CDATA #REQUIRED>
+			
+				<!ELEMENT name (#PCDATA)>
+				<!ELEMENT address (#PCDATA)>
+				<!ELEMENT city (#PCDATA)>
+				<!ELEMENT state (#PCDATA)>
+				<!ELEMENT zip (#PCDATA)>
+				<!ELEMENT country (#PCDATA)>
+		
+		<!-- the product element contains any product info for the shipment -->
+		<!-- product can appear never or once -->
+		<!ELEMENT product (description*, weight, class, units, hazmat?, sku?, packaging?, sic?)>
+		
+			<!ELEMENT description (#PCDATA)>
+			<!ELEMENT weight (#PCDATA)>
+			<!ELEMENT class (#PCDATA)>
+			<!ELEMENT units (#PCDATA)>
+			<!-- note to Jeff, hazmat should be a full element with subs for additional info -->
+			<!ELEMENT hazmat (#PCDATA)>	
+			<!ELEMENT sku (#PCDATA)>
+			<!ELEMENT packaging (#PCDATA)>	
+			<!ELEMENT sic (#PCDATA)>
+		
+		<!-- the pickup element contains any pickup specific info for the shipment 204 -->
+		<!-- pickup can appear never or once -->
+		<!ELEMENT pickup (pickupdate, pickupafter, pickupbefore)>
+		
+			<!ELEMENT pickupdate (#PCDATA)>
+			<!ELEMENT pickupafter (#PCDATA)>
+			<!ELEMENT pickupbefore (#PCDATA)>
+		
+		<!-- the services element contains any accessorials info for the shipment 204 -->
+		<!-- services can appear never or once -->
+		<!ELEMENT services (accessorial*)>
+		
+			<!ELEMENT accessorial (#PCDATA)>
+
+		<!-- the status element contains any shipment statuses for the 214 -->
+		<!-- status can appear never or once -->
+		<!ELEMENT status (code, reason, city, state, equipment?, equipmentnum?, date, time, timezone, notes*)>
+		
+			<!-- the code is the status code from the carrier converted to the EDI standard message -->
+			<!ELEMENT code (#PCDATA)>
+			<!-- the reason is the explanation of the above code -->
+			<!ELEMENT reason (#PCDATA)>
+			
+			<!--already been declared<!ELEMENT city (#PCDATA)>-->
+			<!--already been declared<!ELEMENT state (#PCDATA)>-->
+			
+			<!-- the equipment is the carrier equipment type -->
+			<!ELEMENT equipment (#PCDATA)>
+			<!-- the equipmentnum is the carrier equipment number -->
+			<!ELEMENT equipmentnum (#PCDATA)>
+			
+			<!-- the date here is the date of the status message -->
+			<!--already been declared<!ELEMENT date (#PCDATA)>-->
+			<!-- the time here is the time of the status message -->
+			<!--already been declared<!ELEMENT time (#PCDATA)>-->
+			
+			<!-- the timezone is the timezone of the status message -->
+			<!ELEMENT timezone (#PCDATA)>
+			<!-- the notes allow for any possible notes from the carrier -->
+			<!ELEMENT notes (#PCDATA)>
+		
+		<!-- the invoice element contains the invoice for the shipment -->
+		<!-- invoice can appear never or once -->
+		<!ELEMENT invoice (invoicenumber, invoicedate, duedate, terms?, item*, totalcharges)>
+			
+			<!ELEMENT invoicenumber (#PCDATA)>
+			<!ELEMENT invoicedate (#PCDATA)>
+			<!ELEMENT duedate (#PCDATA)>
+			<!ELEMENT terms (#PCDATA)>
+			<!ELEMENT item (product?, charge)>
+				<!ELEMENT charge (#PCDATA)>
+			<!ELEMENT totalcharges (#PCDATA)>
+
+		<!ELEMENT pod EMPTY>
+			

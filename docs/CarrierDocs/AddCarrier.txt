@@ -1,0 +1,135 @@
+===============================================================================
+
+AddCarrier.txt
+
+$Id: AddCarrier.txt,v 1.1 2002/09/27 04:44:42 youngd Exp $
+
+Process to add a carrier to the Freight Depot system
+
+Darren Young [darren_young@yahoo.com]
+
+===============================================================================
+
+
+OVERVIEW
+--------
+
+This document will explain the process that should be employed to add
+a new freight carrier to the Freight Depot production system. It will
+guide you through the process by using a real example of a carrier
+that was added. The example carrier, Parker Motor Freight, was added
+in September 2002 by me. If all goes well, by the end of this document
+there should be enough information available to automate the process
+almost entirely. Although, there really isn't much of a reason to
+spend time scripting the addition process since we don't add carriers
+all that often.
+
+
+REQUIREMENTS
+------------
+
+The following pieces of information are required to complete the
+carrier addition process.
+
+1) The carrier information such as:
+   - Name
+   - Address
+   - SCAC Code
+   - Negotiated Margin
+   - Minimum Order Amount
+
+2) The "lanes" or "corridors", commonly referred to as XXX, that the
+   carrier services. This will be the zip codes that the carrier is
+   capable of picking up and delivering shipments to/from. This is
+   typically available from the carrier in an electronic format either
+   from their sales or customer service department. In the case of Parker
+   Motor Freight they sent us an electronic version (flat text file) that is
+   in the PAMF directory just below this file.
+
+3) The database connection information for the production database. You must
+   have permissions to INSERT into the production database.
+
+
+ADD CARRIER INFO
+----------------
+
+Here's the layout of the carriers table in the database where you'll be adding
+the new information to:
+
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| carrierid   | mediumint(4) |      | PRI | NULL    | auto_increment |
+| name        | tinytext     | YES  |     | NULL    |                |
+| discount    | int(2)       | YES  |     | NULL    |                |
+| scac        | varchar(4)   | YES  |     | NULL    |                |
+| type        | int(1)       | YES  |     | NULL    |                |
+| description | text         | YES  |     | NULL    |                |
+| minimum     | float(4,2)   | YES  |     | NULL    |                |
+| ccscac      | varchar(4)   | YES  |     | NULL    |                |
+| ormargin    | int(2)       | YES  |     | -1      |                |
++-------------+--------------+------+-----+---------+----------------+
+
+One thing to note: carrierid is auto-magically created via the
+auto_increment field setting so you don't need to add that.
+
+Most of the information came from the carrier with the exception of the
+discount and margin which came from Tom. This is part of the negotiation
+process thet handled with them directly.
+
+carrierid    = auto-generated
+name         = Parker Motor Freight
+discount     = 70
+scac         = PAMF
+type         = 3
+description  = Midwest LTL Carrier
+minimum      = 80.00
+ccscac       = PAMF
+ormargin     = 2
+
+So, in the case of our example of Parker Motor Freight we'll be inserting a
+row as follows:
+
+INSERT INTO carriers VALUES ('',\
+                             'Parker Motor Freight',\
+                             70,\
+                             'PAMF',\
+                             3,\
+                             'Midwest LTL Carrier',\
+                             80.00,\
+                             PAMF,\
+                             2);
+
+Add that to the database and commit.
+
+Run a select to make sure the record was added and take note of the carrierid
+that was generated during the insert, you'll need that for the next step of
+the process. As long as the record is in there correctly, you're done with
+this step of the process.
+
+
+ADD ZIPS
+--------
+
+The next step is to add the zip codes that the carrier services to the
+database. There are 2 tables that need to be updated, zips and zips2 in the
+database. zips is used to track the "left" or origin side of the corridor and
+zips2 is used to track the "right", or destination side. When you line these 2
+up together you end up with the full profile of where a given carrier
+services.
+
+Now, this part of the process is almost completely dependent on the format in
+which the carrier delivers their lane information to you. In the case of PAMF,
+they sent us a flat text file that listed the zips and the terminal associated
+with that zip. Here's a snippet from the file they supplied to us:
+
+14001
+BUFF
+14004
+BUFF
+
+All we really need from it is a listing of the zip codes, however the terminal
+might come in handy later. So, I created a small little script to clean out
+the terminal information and write out just the zips to a new flat text file.
+How you get to the end result really doesn't matter, so long as what you end
+up with is a file that contains lines with the zips.

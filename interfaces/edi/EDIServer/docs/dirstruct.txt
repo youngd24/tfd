@@ -1,0 +1,29 @@
+
+EDIFTP Server Directory Structure
+
+$Id: dirstruct.txt,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+Environment Variables
+---------------------
+
+EDIROOT                        => Points to the top level directory where this tree starts
+EDIPUB                         => The server performs a 'chroot' to this when started
+                                  This is the directory that clients see when connected
+
+$EDIROOT/                      => Starting point
+        /bin                   => Server utility binaries
+        /sbin                  => Server binaries
+        /etc                   => Server configuration files
+        /edipub/               => Public area ($EDIPUB), clients see this area
+               /bin            => Server commands, mostly for client compatibility
+               /etc            => Running server files, user, group, conf, etc.
+               /pub            => Public upload area
+               /lib            => Server libraries, mostly for client compatibility
+               /usr            => Server dir, mostly for client compatibility
+               /usr/bin        => Server commands, etc., mostly for client compatibility
+               /cust           => Customer support area 
+               /cust/<NAME>    => Individual customer areas, sorted by CUSNAME codes
+               /edi/           => EDI area
+               /edi/inq/       => Inbound EDI queue
+               /edi/inq/<SCAC> => Inbound directories per SCAC code
+               /edi/outq/      => Outbound EDI queue

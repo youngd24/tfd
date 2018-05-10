@@ -1,0 +1,128 @@
+'  *******  CZAR DLL data structures
+
+Option Explicit
+
+Type HeaderRecord
+    s_RecordCode As String * 2
+    s_ErrorStatus As String * 4
+    s_ProgramMode As String * 4
+    s_TariffName As String * 8
+    s_IntraState As String * 1
+    s_ShipmentDate As String * 10
+    s_OrgZip As String * 6
+    s_OrgCityState As String * 19
+    s_DestZip As String * 6
+    s_DestCityState As String * 19
+    s_DetailLines As String * 2
+    s_TariffAuthority As String * 8
+    s_Rbno As String * 11
+    s_ActualWeight As String * 6
+    s_BilledWeight As String * 6
+    s_MinCharge As String * 7
+    s_DFCRate As String * 7
+    s_DFCWeight As String * 6
+    s_DFCCharges As String * 9
+    s_TotalCharges As String * 9
+    s_EffectiveDate As String * 10
+    s_ProNumber As String * 16
+    s_SingleShipment As String * 1
+    s_TLMin As String * 8
+    s_TLMax As String * 8
+    s_use_dscnts As String * 1
+    s_return_pointnms As String * 1
+    s_org_rout As String * 1
+    s_dst_rout As String * 1
+    s_CarrierCharges As String * 9
+    s_Variance As String * 6
+    s_UserFiller As String * 50 ' this has changed in 4.0 See sample
+    s_CRLF As String * 2
+End Type
+
+Type DetailRecord
+    s_RecordCode As String * 2
+    s_Class As String * 3
+    s_Weight As String * 6
+    s_Rate As String * 7
+    s_Charge As String * 9
+    s_CRLF As String * 2
+    s_filler As String * 1
+End Type
+
+Type ERTESUBS
+    class_tab(19) As String * 6
+    wgt_tab(19) As Long
+    class_cnt As Integer
+    wgt_cnt As Integer
+End Type
+
+Public Const MCMAX As Integer = 30
+
+Type MINCHG_REC
+    mc_ID(MCMAX - 1) As String * 1 ' 0= SS, 1= Multi
+    mc_fill As String * 2
+    mc_low_wgt(MCMAX - 1) As Long
+    mc_chg(MCMAX - 1) As Long
+    mc_type As Integer
+    mc_cnt As Integer
+End Type
+
+Type DiscountField
+    s_filler As String * 1
+    s_Percent As String * 4
+End Type
+
+Type DiscountRecord
+    s_RecordCode As String * 2
+    ut_Discount(9) As DiscountField
+    s_CRLF As String * 2
+End Type
+
+Type WBDISC_IN_REC
+    record_code As String * 2   '  2 D%
+    dscnt(9) As String * 5      ' 52 (_99v99) _ = space
+    crlf As String * 2          '
+End Type
+
+Type VERSIONS_REC
+    czar_prog_nm  As String * 20
+    czar_ver_number  As String * 3
+    czar_mod_number  As String * 5
+    bczar_prog_nm  As String * 20
+    bczar_ver_number  As String * 3
+    bczar_mod_number  As String * 5
+    fxlib_prog_nm  As String * 20
+    fxlib_ver_number  As String * 3
+    fxlib_mod_number  As String * 5
+    datatype  As String * 15
+    compiler  As String * 6
+End Type
+
+Public Const DETAIL_MAX As Integer = 20
+Public Const EXPAND_CNT As Integer = 175
+
+Type CzarParms
+    Test As String * 1
+    Header As HeaderRecord
+    Detail(DETAIL_MAX - 1) As DetailRecord
+    wbdisc_in As WBDISC_IN_REC
+    indir_in As WBDISC_IN_REC
+    fill1 As String * 3
+    expanded_rates(EXPAND_CNT - 1) As Long
+    ert_subs As ERTESUBS
+    minchgs As MINCHG_REC
+    fill2 As String * 3
+    EndDLL As String * 1
+End Type
+
+Public Parms As CzarParms
+
+Public Temp As String * 100
+Public n_Result As Boolean
+
+Declare Function Czar_InitializeCzar Lib "CZAR.DLL" (ByVal prog_path As String) As Integer
+Declare Function Czar_Set_Czardata Lib "CZAR.DLL" (ByVal data_path As String) As Integer
+Declare Sub Czar_RateShipment Lib "CZAR.DLL" (ByRef dll_in As CzarParms)
+Declare Function Czar_disp_ver Lib "CZAR.DLL" (ByRef ver_in As VERSIONS_REC) As Integer
+Declare Function Czar_EndCzar Lib "CZAR.DLL" () As Integer
+
+

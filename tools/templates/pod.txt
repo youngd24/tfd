@@ -1,0 +1,39 @@
+# ============================================================================
+#
+# pod.txt
+#
+# POD Documentation Template
+#
+# $Id: pod.txt,v 1.1.1.1 2002/07/13 04:30:36 youngd Exp $
+#
+# Contents Copyright (c) 2000-2002 Digiship Corp.
+#
+# Darren Young
+# darren_young@yahoo.com
+#
+# ============================================================================
+
+=head1 NAME
+
+=head1 SYNOPSIS
+
+=head1 DESCRIPTION
+
+=head1 INSTALLATION
+
+=head1 METHODS
+
+=head1 USAGE
+
+=head1 EXAMPLE OUTPUT
+
+=head1 VERSION
+
+$Id: pod.txt,v 1.1.1.1 2002/07/13 04:30:36 youngd Exp $
+
+=head1 COPYRIGHT
+
+=head1 AUTHORS
+
+=head1 SEE ALSO
+

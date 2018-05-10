@@ -1,0 +1,88 @@
+RATE SERVER INSTALLATION INSTRUCTIONS
+
+Contents Copyright (c) 2000, Digiship Corp.
+
+$Id: install.txt,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+This document will explain how to install the Digiship Rate Server and the associated components needed to make it operate. This procedure is known to work on Windows NT 4.0 and Windows 2000.
+
+Requirements
+
+* Czar Lite Software
+   * Data file updates
+* Carrier Connect Software
+   * Windows Software 
+   * Development Kit
+* Perl 5
+   * Mail::Sender
+   * Win32::OLE
+   * IO::Select
+   * IO::Socket
+   * Carp
+   * strict
+* OLE/COM Components
+   * DigishipRate.dll & config file (RateConfig.txt)
+   * DigiCarrier.dll
+* Rate Server program
+   * RateServer.pl
+
+
+Steps
+
+1) Install & update the OS
+2) Install Perl
+3) Install Perl modules
+   Mail::Sender
+4) Install & update Czar Lite
+5) Install & update Carrier Connect
+6) Install & register OLE dll's
+7) Install Rate Server
+8) Test installation
+9) Use it
+
+
+Detailed Instructions
+
+Step 1 - Install & update the OS
+
+Well, we're not going to get into that here, but basically, you need a working version of Windows NT 4.0 or 2000 that will get on a network. Other than that, you're on your own.
+
+Step 2 - Instal Perl
+
+I recommend using the ActiveState Win32 Perl distribution, it has many nice features over the public domain one. It's still free, however they've added many enhancements to the core. Additionally, that's what all of this has been tested with.
+
+Step 3 - Install Perl Modules
+
+You'll need to install several extra Perl modules such as Mail::Sender. With the ActiveState Perl you can simply use PPM. If you prefer, use the CPAN module as well. Both work just fine. Anyways, install them, run any tests that come with them and move on.
+
+Step 4 - Install & update Czar Lite
+
+Obtain a copy of the Czar32 developer dll diskette as well as the 2 data file update diskettes. If you are unablt to locate the pysical media, there are copies on the file server as well as in CVS. From the developer dll diskette run winstall.exe, the only item that need to be changed is the destination directory. Modify that setting to be \digiship\rating\pricing and let loose with the installation.
+
+After this is done, browse to the \digiship\rating\pricing folder and double-click on the install.exe program. This will prompt you for both the data file diskettes. Feed them in and do whatever the program says to do. When complete, run the mainten.exe program in the same folder. Click on the tariff that you just installed and then on file->verify tariff. It should return the size of the tariff that was installed. If it didn't, something went wrong with the installation. Remove it all, then try again. If you still have no success, call for support.
+
+Step 5 - Install & update Carrier Connect
+
+Locate the current copy of the Carrier Connect developer & data file software. It's usually on a CD-ROM around somewhere. If you can't find it, make a copy from the file server or from CVS. At any rate, you will need to run the setup.exe from the source media and install it on the rating server. The only item that needs to be modified is the destination path. Change it to be \digiship\rating\transit and let the program fire away. It should install without a hitch, but again, if it fails call support. This document can't possibly lead you through every if/then/else for installing other people's software.
+
+Step 6 - Install & register OLE DLL's
+
+Obtain a copy of the current rating & transit dll's DigishipRate.dll and DigishipCarrier.dll from CVS or the file server. Make sure they are the correct version before proceeding, small changes can have massive effects. Copy the DigishipRate.dll file to \digiship\rating\pricing and DigishipCarrier.dll to \digiship\rating\transit. When this is done, you will need to "register" them as active objects on the system. The program used to perform this is regsvr32.exe and is usually in the windows system folder (system32 on NT/2000). Bring up a command prompt and cd to the target directory, for this example: \digiship\rating\pricing. Type regsvr32.exe DigishipRating.dll and press return. You should receive a message box saying that the DLL was registered on the system. If not, then something really bad has happened. Do the same procedure from the transit folder for the DigishipCarrier.dll file. Again, you should receive the message box regarding the successful registration of the object.
+
+Note: If these objects are not installed and registered, the RateServer will not operate. If you try to start the RateServer without these properly installed, it will fail victoriously.
+
+Step 7 - Install Rate Server
+
+For this phase, obtain a copy of the file RateServer.exe and RateClient.exe from the file server or from CVS. CVS is most likely your best option for this as they'll be the correct version. Copy both executables to the destination of \digiship\rating\RateServer. Obtain a copy of the file rs.conf and place it in \digiship\rating\conf. It can be edited to suit the deployment needs, although it has fairly "sane" defaults. Tske a look at it to see what is tuneable, it is "self documented".
+
+The next thing to do is to start the rate server. Open a command prompt and cd to the \digiship\rating\RateServer folder and type RateServer.exe --config-file=\digiship\rating\conf\rs.conf and watch in amazement! If it fails for some reason, find someone, debug it or look for more documentation (or the source code). Otherwise, you're in business.
+
+Step 8 - Test Installation
+
+To test the installation, run the RateClient.exe with the --server option pointing to the machine's address ot name of the rate engine you just installed. Give it some paramaters such as zip codes, weight, class ans such and press enter. You will see the communication with the server fly by in front of you on the screen and at teh end youwill receive the information that was retrieved.
+
+If you don't make sure you typed the name properly, if that fails, use the IP address instead. Make sure the server is actually up and running or even try and start it with the --debug flag to increase verbosity of the output. Change the handle on the server to STDOUT in conjunction with the --debug flag to see all the information on the screen instead of the log file. If all this fails, find someone or look at the source code to see what happened.
+
+Step 9 - Use It
+
+At this point youhave a working rate server. Stress testing is a good thing to do on a new server. You can use the StressTest.pl script along with the associated .bat or .sh file to run _massive_ rates with.

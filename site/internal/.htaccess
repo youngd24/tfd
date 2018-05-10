@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "The Freight Depot Intranet"
+AuthUserFile "/auth/passwd"
+AuthGroupFile /dev/null
+Require valid-user

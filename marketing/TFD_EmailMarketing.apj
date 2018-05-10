@@ -1,0 +1,12 @@
+# Allaire Visual Tool Project File
+# Version=4.00.00
+[files]
+addshwag.php
+emailer.php
+index.php
+marketing.php
+sendshwag.php
+shwaglog.php
+CVS\Entries
+CVS\Repository
+CVS\Root

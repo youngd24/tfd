@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmledi SYSTEM "210.dtd">
+
+<xmledi doctype="210">
+   <transmission transmissionid="sometext">
+      <sender></sender>
+      <receiver></receiver>
+      <date></date>
+      <time></time>
+   </transmission>
+   <invoice>
+      <header>
+         <invoicenumber></invoicenumber>
+         <pronumber></pronumber>
+         <bolnumber></bolnumber>
+         <ponumber></ponumber>
+         <paymentmethod></paymentmethod>
+         <weightunit></weightunit>
+         <pickupdate></pickupdate>
+         <deliverydate></deliverydate>
+         <billingdate></billingdate>
+         <totalweight></totalweight>
+         <totalcharges></totalcharges>
+         <totalpieces></totalpieces>
+      </header>
+      <currency>
+         <code></code>
+         <exchrate></exchrate>
+      </currency>
+      <remarks>
+         <message></message>
+      </remarks>
+      <parties>      
+         <party type="SH (Shipper)">
+            <name></name>
+            <address></address>
+            <city></city>
+            <stateprovince></stateprovince>
+            <postalcode></postalcode>
+            <countrycode></countrycode>
+         </party>
+         <party type="SF (Ship From)">
+            <name></name>
+            <address></address>
+            <city></city>
+            <stateprovince></stateprovince>
+            <postalcode></postalcode>
+            <countrycode></countrycode>
+         </party>
+         <party type="CN (Consignee)">
+            <name></name>
+            <address></address>
+            <city></city>
+            <stateprovince></stateprovince>
+            <postalcode></postalcode>
+            <countrycode></countrycode>
+         </party>
+         <party type="BT (Bill To Third Party)">
+            <name></name>
+            <address></address>
+            <city></city>
+            <stateprovince></stateprovince>
+            <postalcode></postalcode>
+            <countrycode></countrycode>
+         </party>
+      </parties>
+      <items>
+         <item id="">
+            <description></description>
+            <billedquantity></billedquantity>
+            <ladingquantity></ladingquantity>
+            <weight></weight>
+            <weightunit>L</weightunit>
+            <class></class>
+            <charges></charges>
+            <specialcharges></specialcharges>
+         </item>
+      </items>
+   </invoice>
+</xmledi>

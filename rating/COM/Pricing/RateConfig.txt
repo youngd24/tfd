@@ -1,0 +1,1 @@
+ProgramPath|C:\CZAR\, RecordCode|01, ProgramMode| ME1, ShipmentDate|01-01-1999, TariffName|LITECZ02, DetailLines|01, SingleShipment|N, Intrastate|N'

@@ -1,0 +1,109 @@
+<?xml version = "1.0"?>
+
+<?kli format=SSMDATA sender=DIGSHI rrr=TEST?>
+
+<xmledi doctype="204" revid="1.0">
+
+	<transmission transmissionid="12312323" acknowledge="Y">
+	
+		<sender>DIGSHI</sender>
+		<receiver>RDWY</receiver>
+		<date>2001-03-14</date>
+		<time>12:45:23</time>
+
+	</transmission>
+
+	<shipment type="original">
+		
+		<header>
+		
+			<bolnumber>140024</bolnumber>
+			<ponumber>ACDA-ADF23</ponumber>
+			<pronumber></pronumber>
+		
+		</header>
+	
+		<location>
+
+			<party type="origin">
+				
+				<name>Clement Wheel</name>
+				<contact></contact>
+				<address>12332 North St</address>
+				<address>Dock 4</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60607</zip>
+				<phone></phone>
+				<fax></fax>
+				<email></email>
+
+			</party>
+
+			<party type="destination">
+				
+				<name>BMW Racing</name>
+				<contact></contact>
+				<address>58 7th Avenue</address>
+				<city>New York</city>
+				<state>NY</state>
+				<zip>01005</zip>
+				<phone></phone>
+				<fax></fax>
+				<email></email>
+
+			</party>
+
+			<party type="billing">
+				
+				<name>The Freight Depot</name>
+				<contact></contact>
+				<address>191 E. Deerpath</address>
+				<address>Suite 302</address>
+				<city>Lake Forest</city>
+				<state>IL</state>
+				<zip>60045</zip>
+				<phone></phone>
+				<fax></fax>
+				<email></email>
+
+			</party>
+
+			<party type="carrier">
+				
+				<name>Roadway Express</name>
+				
+			</party>
+
+		</location>
+
+		<product>
+		
+			<description>Steel Wheels</description>
+			<weight>10000</weight>
+			<weightqualifier>LBS</weightqualifier>
+			<class>75</class>
+			<quantity>12</quantity>
+			<packaging>skid</packaging>
+
+		</product>
+
+		<pickup>
+
+			<pickupdate>2002-01-01</pickupdate>
+			<pickupafter>09:20:00</pickupafter>
+			<pickupbefore>14:50:00</pickupbefore>
+
+		</pickup>
+
+		<services>
+
+			<accessorial>Liftgate</accessorial>
+			<accessorial>Notify</accessorial>
+			
+		</services>
+		
+
+	</shipment>
+
+</xmledi>

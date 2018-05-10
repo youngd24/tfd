@@ -1,0 +1,47 @@
+# =============================================================================
+#
+# ChangeLog
+#
+# The Freight Depot Site / Application Change Log
+#
+# $Id: ChangeLog,v 1.5 2002/10/03 22:46:19 youngd Exp $
+#
+# Contents Copyright (c) 2002, Transport Investments, Inc.
+#
+# Darren Young [darren_young@yahoo.com]
+#
+# =============================================================================
+
+RELEASE_10-03-2002_D :
+   * Added thje ability to manage the fuel surcharge information to the 
+     carrier management screen (internal).
+   * Added the fuel_surcharge field to the database, type float(4,2). 
+   * Populated the default fuel surcharges to be 3.5
+
+RELEASE_09-19-2002_C : 
+   * Added bugzilla link from the Intranet page
+
+RELEASE_09-19-2002_B : 
+   * Added version management scripts and pages
+
+RELEASE_09-19-2002_A : Deployed 09-19-2002 01:00
+
+    * Added new image (mainfd-3.gif) that includes the phone number on it.
+    * Changed the bol.php to point to the new image added.
+    * Major addition of the way we present and price additional services.
+      - There is a section just below the rating portion of the my page that
+        lists all the possible additional services and their prices. Each one
+        has a checkbox next to it.
+      - These values are posted to the next page, rating.php, that includes a
+        subtotal of the at the upper right along with a new total that is the
+        sum of the base rate and all additional services. All of the options
+        here are agained stored in hidden fields to be passed to the next page.
+      - The next page, schedule.php, has changes in the way the additional
+        services were changed. Rather than a 'drop-down' type of list, they are
+        now presented in checkboxes. This was done for 2 reasons, the first is
+        to be consistent since they were presented as checkboxes 2 pages
+        before. The second was that a drop-down type of box can't have the
+        values set to any defaults, checkboxes can. That way the user's choices
+        so far were reflected on this page. The total on the top right of the
+        page now reflects the rate price, services and a sum of the two as a
+        total.

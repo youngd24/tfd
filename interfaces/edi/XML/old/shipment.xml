@@ -1,0 +1,151 @@
+<?xml version = "1.0"?>
+<?kli format=SSMDATA sender=DIGSHI rrr=TEST?>
+
+<!DOCTYPE xmledi SYSTEM "xmledi.dtd">
+
+<xmledi>
+
+	<shipment>
+		
+		<header>
+		
+			<pronumber>213123</pronumber>
+			<bolnumber>140024</bolnumber>
+			<ponumber>ACDA-ADF23</ponumber>
+		
+		</header>
+	
+		<location>
+
+			<party type="ORIGIN">
+				
+				<name>Clement Wheel</name>
+				<address>12332 North St</address>
+				<address>Dock 4</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60607</zip>
+
+			</party>
+
+			<party type="DESTINATION">
+				
+				<name>BMW Racing</name>
+				<address>58 7th Avenue</address>
+				<city>New York</city>
+				<state>NY</state>
+				<zip>01005</zip>
+
+			</party>
+
+			<party type="BILLING">
+				
+				<name>DigiShip Corporation</name>
+				<address>900 N Franklin</address>
+				<address>Suite 402</address>
+				<city>Chicago</city>
+				<state>IL</state>
+				<zip>60610</zip>
+
+			</party>
+
+			<party type="CARRIER">
+				
+				<name>Roadway Express</name>
+				
+			</party>
+
+		</location>
+
+		<product>
+		
+			<description>Steel Wheels</description>
+			<weight>10000</weight>
+			<class>75</class>
+			<units>12</units>
+			<packaging>skid</packaging>
+
+		</product>
+
+		<pickup>
+
+			<pickupdate>01-01-2000</pickupdate>
+			<pickupafter>09:20:00</pickupafter>
+			<pickupbefore>14:50:00</pickupbefore>
+
+		</pickup>
+
+		<services>
+
+			<accessorial>Liftgate</accessorial>
+			<accessorial>Notify</accessorial>
+			<accessorial>Liftgate</accessorial>
+
+		</services>
+		
+
+		<status>
+			
+			<code>Delivered</code>
+			<reason>Consignee At Fault</reason>	
+			<city>New York</city>
+			<state>NY</state>
+			<equipment>TL</equipment>
+			<equipmentnum>213123</equipmentnum>
+			<date>2001-10-14</date>
+			<time>13:12:31</time>
+			<timezone>EST</timezone>
+			<notes>Some notes</notes>
+				
+		</status>
+		
+
+		<status>
+			
+			<code>Arrived in Pittsburg</code>
+			<reason>Breakbulk</reason>	
+			<city>Pittsburg</city>
+			<state>PA</state>
+			<equipment>TL</equipment>
+			<equipmentnum>213123</equipmentnum>
+			<date>2001-10-13</date>
+			<time>13:12:31</time>
+			<timezone>EST</timezone>
+			<notes>Some notes</notes>
+				
+		</status>
+
+
+		<status>
+			
+			<code>Shipment Picked Up</code>
+			<reason>BOL received</reason>	
+			<city>Chicago</city>
+			<state>IL</state>
+			<equipment>TL</equipment>
+			<equipmentnum>213123</equipmentnum>
+			<date>2001-10-12</date>
+			<time>13:12:31</time>
+			<timezone>EST</timezone>
+			<notes>Some notes</notes>
+				
+		</status>
+
+		<invoice>
+
+			<invoicenumber>29494292</invoicenumber>
+			<invoicedate>10/16/1969</invoicedate>
+			<duedate>11/15/1969</duedate>
+			<terms>Net 30</terms>
+			<item>
+				<charge>142.23</charge>
+			</item>
+			<totalcharges>142.23</totalcharges>
+			
+
+		</invoice>
+
+	</shipment>
+
+</xmledi>
+	

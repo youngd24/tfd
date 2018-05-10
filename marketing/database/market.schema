@@ -1,0 +1,92 @@
+# MySQL dump 8.14
+#
+# Host: localhost    Database: market
+#--------------------------------------------------------
+# Server version	3.23.41
+
+#
+# Table structure for table 'dbindex'
+#
+
+CREATE TABLE dbindex (
+  dbname text,
+  description text
+) TYPE=ISAM PACK_KEYS=1;
+
+#
+# Table structure for table 'emails'
+#
+
+CREATE TABLE emails (
+  emailid int(11) NOT NULL auto_increment,
+  email char(50) NOT NULL default '',
+  shwagid int(11) default '0',
+  date datetime default NULL,
+  PRIMARY KEY  (emailid),
+  UNIQUE KEY email (email),
+  UNIQUE KEY email_2 (email)
+) TYPE=ISAM PACK_KEYS=1;
+
+#
+# Table structure for table 'emails2'
+#
+
+CREATE TABLE emails2 (
+  emailid int(11) NOT NULL auto_increment,
+  email char(50) NOT NULL default '',
+  shwagid int(11) default '0',
+  date datetime default NULL,
+  PRIMARY KEY  (emailid),
+  UNIQUE KEY email (email)
+) TYPE=ISAM PACK_KEYS=1;
+
+#
+# Table structure for table 'emails3'
+#
+
+CREATE TABLE emails3 (
+  emailid int(11) NOT NULL auto_increment,
+  email char(50) NOT NULL default '',
+  shwagid int(11) default '0',
+  date datetime default NULL,
+  PRIMARY KEY  (emailid),
+  UNIQUE KEY email_2 (email),
+  UNIQUE KEY email (email)
+) TYPE=MyISAM;
+
+#
+# Table structure for table 'log'
+#
+
+CREATE TABLE log (
+  shwagid int(5) default NULL,
+  totalemails int(10) default NULL,
+  date date default NULL
+) TYPE=ISAM PACK_KEYS=1;
+
+#
+# Table structure for table 'registered'
+#
+
+CREATE TABLE registered (
+  emailid int(11) NOT NULL auto_increment,
+  email char(50) NOT NULL default '',
+  shwagid int(11) default '0',
+  date datetime default NULL,
+  PRIMARY KEY  (emailid),
+  UNIQUE KEY email (email)
+) TYPE=ISAM PACK_KEYS=1;
+
+#
+# Table structure for table 'shwag'
+#
+
+CREATE TABLE shwag (
+  shwagid int(11) NOT NULL auto_increment,
+  name mediumtext,
+  html text,
+  subject mediumtext,
+  replyaddress mediumtext,
+  PRIMARY KEY  (shwagid)
+) TYPE=ISAM PACK_KEYS=1;
+

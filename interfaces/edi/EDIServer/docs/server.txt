@@ -1,0 +1,70 @@
+EDI-FTP Server Documentation
+
+$Id: server.txt,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+Contents Copyright (c) 2000, 2001 Digiship Corp.
+
+Darren Young
+youngd@digiship.com
+
+
+The EDI server was created to handle incoming FTP transfers of XMLEDI
+messages with our VAN Kleinschmidt. The FTP components were written as 
+closely to RFC959 as possible to achieve maximum client compatibility.
+A copy of the RFC itself is available in the docs directory of the CVS
+source. There are sevaral additions to the original FTP RFC, however 959 
+is viewed as the "lowest common denominator" when people build FTP clients
+and servers.
+
+The EDI implementation is handled via the SITE command. The SITE command
+was added to "allow local customizations" according to the RFC. When a client
+issues the SITE EDI command to the server, it puts itself into a mode where
+any documents received from that client are assumed to be valid, well-formed
+EDIXML documents. Only documents (files) received from that particular client
+will be processed as EDI types, any other clients may continue to operate as
+a "normal" FTP client.
+
+Once the SITE command has been set and the server's connection mode is 
+changed, the client will send the STOR <file> command to the server. After
+checking permissions and such, the server will send the OK response to the
+client. The client will then send the PORT <port> command to the server to 
+indicate what TCP port it is listening on for data connections. Once
+received, the server will establish a connection to that port and start
+transferring data.
+
+Once the data transfer is complete, the server will store the file in a work are
+called the "IN QUEUE". During this time, the connection to the clients data port
+and control port are still held open for the next process to complete. Once stored,
+the server will determine the type of XMLEDI document, and attempt to validate it
+against the correct DTD. If the document valdates correctly, the OK signal is sent
+to the client and the data connection is closed down. If the document does not 
+validate correctly, the FTP error message "STOR FAILED" will be send across the control
+connection to the client and the data pipe will be closed. The failed document will be
+stored to a directory called FAILED with a file extension of the date & time that
+the failure was detected. In addition to this, an email message to a site admin
+will be generated indicating the XML validation error, the name of the file 
+stored on the server and a copy of the file as an attachment.
+
+After the OK signal is sent to the client, it is free to start transferring
+additional files and the process will start all over again. Note: it is not
+necessary for the client to issue the SITE EDI command again, it will stay
+in effect until the client disconnects or issues the command SITE STANDARD which
+informs the server to stop processing incoming files as XMLEDI documents.
+
+Once the file is stored on disk in the INQUEUE, another thread is started to 
+parse the document. The parser is based on the XML DOM model and retrieves
+all the details of the document. The parser will determine the type of document,
+it's revision and start to store the information in the database. Currently, the
+only inbound type supported is a 214 status message. The document date, time,
+sender and receiver will be picked up to build the stored file name. The status
+details will be parsed and stored in the database in the appropriate fields as
+well. The file naming conventions are based on the type of document, the
+sender's SCAC code and the Digiship BOL number. Each file will be stored in a
+directory named after the SCAC code of the sender and wil be named:
+	BOLNUMBER-TYPE.XML
+So, for a 214 with the BOL number 12345 received from Roadway, it will be stored
+in:
+	/ediroot/received/RDWY/12345-214.XML
+All file names will be stored in upper case to prevent confusion, except for the 
+SCAC code which is in all capitals. Note: the FTP server is case sensitive as will
+be clients. 

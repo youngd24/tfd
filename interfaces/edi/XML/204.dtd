@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    204.dtd
+
+    204 Document Type Definition
+
+    $Id: 204.dtd,v 1.6 2003/01/09 21:15:30 youngd Exp $
+
+    Contents Copyright (c) 2002-2003, The Freight Depot
+
+    Darren Young [darren_young@yahoo.com]
+-->
+
+<!ELEMENT xmledi (transmission, shipment)>
+<!ATTLIST xmledi doctype (204) #REQUIRED >
+
+    <!ELEMENT transmission (timestamp, mode, ack)>
+    <!ATTLIST transmission id CDATA #REQUIRED >
+        <!ELEMENT timestamp (#PCDATA)>
+        <!ELEMENT mode (#PCDATA)>
+        <!ELEMENT ack (#PCDATA)>
+   
+   <!ELEMENT shipment (header, location, product, pickup, services)>
+        <!ELEMENT header (type, paymentmethod, bolnumber, ponumber)>
+            <!ELEMENT type (#PCDATA)>
+            <!ELEMENT paymentmethod (#PCDATA)>
+            <!ELEMENT bolnumber (#PCDATA)>
+            <!ELEMENT ponumber (#PCDATA)>
+        <!ELEMENT location (party+)>
+            <!ELEMENT party (name, address1?, address2?, city?, state?, zip?, contact?, phone?, scac?)>
+            <!ATTLIST party type (BILLING | CARRIER | DESTINATION | ORIGIN) #REQUIRED >
+                <!ELEMENT name (#PCDATA)>
+                <!ELEMENT address1 (#PCDATA)>
+                <!ELEMENT address2 (#PCDATA)>
+                <!ELEMENT city (#PCDATA)>
+                <!ELEMENT state (#PCDATA)>
+                <!ELEMENT zip (#PCDATA)>
+                <!ELEMENT contact (#PCDATA)>
+                <!ELEMENT phone (#PCDATA)>
+                <!ELEMENT scac (#PCDATA)>
+        <!ELEMENT product (description, weight, class, units, packaging, hazmat, hazmatphone)>
+            <!ELEMENT description (#PCDATA)>
+            <!ELEMENT weight (#PCDATA)>
+            <!ELEMENT class (#PCDATA)>
+            <!ELEMENT units (#PCDATA)>
+            <!ELEMENT packaging (#PCDATA)>
+            <!ELEMENT hazmat (#PCDATA)>
+            <!ELEMENT hazmatphone (#PCDATA)>
+        <!ELEMENT pickup (pickupdate, pickupafter, pickupbefore)>
+            <!ELEMENT pickupdate (#PCDATA)>
+            <!ELEMENT pickupafter (#PCDATA)>
+            <!ELEMENT pickupbefore (#PCDATA)>
+        <!ELEMENT services (accessorial+)>
+            <!ELEMENT accessorial (#PCDATA)>

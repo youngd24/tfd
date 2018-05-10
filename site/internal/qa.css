@@ -1,0 +1,18 @@
+.t1  { 
+    font-family : verdana; 
+    font-size   : 10 px;  
+    color       : blue;  
+} 
+
+.t2  { 
+    font-family : verdana; 
+    font-size   : 11 px;  
+    color       : black;  
+} 
+
+.topHeader {
+	font-family : verdana;
+	font-style  : bold;
+	font-size   : 34 px;
+	color       : black;
+}

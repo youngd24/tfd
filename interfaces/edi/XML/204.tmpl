@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+%KLI_HEADER%
+<!DOCTYPE xmledi SYSTEM "204.dtd">
+
+<xmledi doctype="%DOCTYPE%">
+
+  <transmission id="%TRANS_TRANSMISSIONID%">
+	  <timestamp>%TRANS_TIMESTAMP%</timestamp>
+      <mode>%TRANS_MODE%</mode>
+      <ack>%TRANS_ACK%</ack>
+  </transmission>
+
+  <shipment>
+    <header>
+	  <type>%TYPE%</type>
+	  <paymentmethod>%PAYMENTMETHOD%</paymentmethod>
+      <bolnumber>%BOLNUMBER%</bolnumber>
+      <ponumber>%PONUMBER%</ponumber>
+    </header>
+    <location>
+      <party type="ORIGIN">
+        <name>%ORIGINNAME%</name>
+        <address1>%ORIGINADDRESS1%</address1>
+        <address2>%ORIGINADDRESS2%</address2>
+        <city>%ORIGINCITY%</city>
+        <state>%ORIGINSTATE%</state>
+        <zip>%ORIGINZIP%</zip>
+        <contact>%ORIGINCONTACT%</contact>
+        <phone>%ORIGINPHONE%</phone>
+      </party>
+      <party type="DESTINATION">
+        <name>%DESTNAME%</name>
+        <address1>%DESTADDRESS1%</address1>
+        <address2>%DESTADDRESS2%</address2>
+        <city>%DESTCITY%</city>
+        <state>%DESTSTATE%</state>
+        <zip>%DESTZIP%</zip>
+        <contact>%DESTCONTACT%</contact>
+        <phone>%DESTPHONE%</phone>
+      </party>
+      <party type="BILLING">
+        <name>%BILLINGNAME%</name>
+        <address1>%BILLINGADDRESS1%</address1>
+        <address2>%BILLINGADDRESS2%</address2>
+        <city>%BILLINGCITY%</city>
+        <state>%BILLINGSTATE%</state>
+        <zip>%BILLINGZIP%</zip>
+        <contact>%BILLINGCONTACT%</contact>
+        <phone>%BILLINGPHONE%</phone>
+      </party>
+      <party type="CARRIER">
+        <name>%CARRIERNAME%</name>
+        <scac>%CARRIERSCAC%</scac>
+      </party>
+    </location>
+    <product>
+      <description>%PRODUCTDESCRIPTION%</description>
+      <weight>%PRODUCTWEIGHT%</weight>
+      <class>%PRODUCTCLASS%</class>
+      <units>%PRODUCTUNITS%</units>
+      <packaging>%PRODUCTPACKAGING%</packaging>
+      <hazmat>%PRODUCTHAZMAT%</hazmat>
+      <hazmatphone>%PRODUCTHAZMATPHONE%</hazmatphone>
+    </product>
+    <pickup>
+      <pickupdate>%PICKUPDATE%</pickupdate>
+      <pickupafter>%PICKUPAFTER%</pickupafter>
+      <pickupbefore>%PICKUPBEFORE%</pickupbefore>
+    </pickup>
+    <services>
+      %ACCESSORIALS%
+    </services>
+  </shipment>
+
+</xmledi>

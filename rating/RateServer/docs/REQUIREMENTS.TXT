@@ -1,0 +1,10 @@
+Rate Server Requirements
+
+Perl:
+	* Active State Active Perl v. 5.6.1 build 630
+		- http://www.activestate.com
+
+Perl Modules:
+	* XML::Parser	2.27
+	* XML::DOM	1.25
+	* URI		1.17

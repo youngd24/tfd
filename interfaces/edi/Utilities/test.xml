@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmledi doctype="214">
+  <transmission transmissionid="000000267">
+    <sender>RDWY</sender>
+    <receiver>DIGSHI</receiver>
+    <date>2003-01-02</date>
+    <time>05:55:00</time>
+  </transmission>
+  <shipment>
+    <header>
+      <pronumber>8830313398</pronumber>
+      <bolnumber>152734</bolnumber>
+    </header>
+    <product>
+      <weightqualcode>G</weightqualcode>
+      <weightunitcode>L</weightunitcode>
+      <weight>250</weight>
+    </product>
+    <status>
+      <code>Estimated to Arrive at Carrier Terminal</code>
+      <reason>Normal Status</reason>
+      <city>PORTLAND</city>
+      <state>OR</state>
+      <equipmentnum>274572</equipmentnum>
+      <date>2003-01-02</date>
+      <time>12:20:00</time>
+      <timezone>PT</timezone>
+    </status>
+  </shipment>
+  <shipment>
+    <header>
+      <pronumber>8908161828</pronumber>
+      <bolnumber>152724</bolnumber>
+    </header>
+    <product>
+      <weightqualcode>G</weightqualcode>
+      <weightunitcode>L</weightunitcode>
+      <weight>600</weight>
+    </product>
+    <status>
+      <code>Estimated to Arrive at Carrier Terminal</code>
+      <reason>Normal Status</reason>
+      <city>CINCINNATI</city>
+      <state>OH</state>
+      <equipmentnum>276782</equipmentnum>
+      <date>2003-01-02</date>
+      <time>02:37:00</time>
+      <timezone>ET</timezone>
+    </status>
+  </shipment>
+</xmledi>

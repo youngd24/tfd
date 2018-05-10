@@ -1,0 +1,143 @@
+# ============================================================================
+#
+# Debug.pm
+#
+# POD Documentation for the Digiship::Debug module
+#
+# $Id: Debug.pod,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+#
+# Contents Copyright (c) 2000-2002 Digiship Corp.
+#
+# Darren Young
+# darren_young@yahoo.com
+#
+# ============================================================================
+
+=head1 NAME
+
+Digiship::Debug
+
+=head1 SYNOPSIS
+
+=for html
+<pre>use Digiship::Debug;</pre>
+
+=head1 DESCRIPTION
+
+Digiship::Debug is used in instances where a common debug interface is desired.
+Rather than creating a debug method in every perl script or module, the same
+results may be obtained from this module. Additionally, all the debug messages
+that an application generates will all have the same look and feel.
+
+The ideal way to enable debugging on a global scale within an application is to
+set a top-level (global) variable called debug that sets the level within this
+module. In a perfect world, this debug variable would come from a source outside
+the script itself such as from the command line or from a configuration file.
+
+=head1 INSTALLATION
+
+This module is installed by default with the EDIServer application.
+
+=head1 METHODS
+
+=for html
+<li><b>setDebugLevel()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Sets the level of messages to print
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : String(level) [0 = off, 1 = on]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br>
+
+=for html
+<li><b>getVersion()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Returns the version of the modue
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : String(version)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br>
+
+=for html
+<li><b>getName()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Returns the name of the module
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br>
+
+=for html
+<li><b>print()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; DESCRIPTION  : Prints a properly formatted debug message to STDERR
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ARGUMENTS    : String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; RETURNS      : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; NOTES        : None
+<br>
+<br>
+
+=head1 USAGE
+
+=for html
+<pre>
+# Load the module
+use Digiship::Debug;
+<br>
+# Create a new instance of it
+$Debug = Digiship::Debug->new();
+<br>
+# Set the debug level to 1
+$Debug->setDebugLevel(1);
+<br>
+# Print a debug message
+$Debug->print("Debug message");
+<br>
+# Or like this
+$Debug->print("Hello from " . hostname());
+<br>
+</pre>
+
+=head1 EXAMPLE OUTPUT
+
+=for html
+<pre>
+Calling Debug->getName() [OK] Got: "Digiship Debugging Module" 
+Calling Debug->getVersion() [OK] Got: "1.3" 
+Calling Debug->print(): &lt;Sun Feb 10 03:09:00 2002&gt; &lt;Debug&gt; Debug->print() [OK] 
+</pre>
+
+=head1 VERSION
+
+$Id: Debug.pod,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+=head1 COPYRIGHT
+
+Contents Copyright (c) Digiship Corp.
+
+=head1 AUTHORS
+
+Darren Young [darren_young@yahoo.com]
+
+=head1 SEE ALSO
+
+L<Digiship::Error>

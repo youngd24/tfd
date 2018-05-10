@@ -1,0 +1,16 @@
+# ============================================================================
+#
+# fett.hosts
+#
+# TCP/IP hosts file for fett
+#
+# $Id: fett.hosts,v 1.2 2002/08/20 17:58:05 youngd Exp $
+#
+# Portions Copyright (c) 2002, Transport Investments, Inc.
+#
+# Darren Young [darren@younghome.com]
+#
+# ============================================================================
+
+127.0.0.1	localhost.localdomain localhost
+64.95.80.1  fett  fett.thefreightdepot.com

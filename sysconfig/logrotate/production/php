@@ -1,0 +1,37 @@
+# =============================================================================
+#
+# php
+#
+# Logrotate configuration for TFD's PHP app log
+#
+# $Id: php,v 1.1.1.1 2003/01/15 18:01:00 youngd Exp $
+#
+# Contents Copyright (c) 2002-2003, The Freight Depot
+#
+# Darren Young [darren_young@yahoo.com]
+#
+# =============================================================================
+#
+# Description:
+#
+# =============================================================================
+#
+# ChangeLog:
+#
+# $Log: php,v $
+# Revision 1.1.1.1  2003/01/15 18:01:00  youngd
+# new import from production
+#
+# =============================================================================
+
+/var/log/php/php.log {
+    missingok
+    sharedscripts
+    rotate 12
+    monthly
+    compress
+    postrotate
+	#/bin/kill -HUP `cat /var/run/httpd.pid 2>/dev/null` 2> /dev/null || true
+    /usr/local/apache/bin/apachectl restart > /dev/null 2>&1 || true
+    endscript
+}

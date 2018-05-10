@@ -1,0 +1,296 @@
+# ===================================================================
+#
+# tfd.schema
+#
+# The Freight Depot Database Schema. See the file README in this
+# directory for instructions on how to SAFELY make changes to the
+# database schema/design and import it into production.
+#
+# $Id: tfd.schema,v 1.9 2002/08/12 20:08:11 youngd Exp $
+# 
+# Contents Copyright (c) 2002, The Freight Depot
+#
+# Darren Young [darren@younghome.com]
+#
+# ===================================================================
+#
+# vim: set noautoindent:
+# vim: set nosmartindent:
+#
+# ===================================================================
+#
+# ChangeLog
+#
+# $Log: tfd.schema,v $
+# Revision 1.9  2002/08/12 20:08:11  youngd
+# * Added mailinglist table
+#   - Darren Young [darren@younghome.com]
+#
+# Revision 1.8  2002/07/26 18:30:36  youngd
+# * Added vim headers
+#
+# Revision 1.7  2002/07/13 04:56:47  youngd
+# * Fixed a type on line 434 in which the ; was in the wrong place
+#
+# Revision 1.6  2002/07/13 04:56:10  youngd
+# * Added test to refer people to the readme file for more information
+#
+# Revision 1.5  2002/07/13 04:54:46  youngd
+# * Removed Type=MyISAM statements
+# * Added edi table
+# * Added default data for new edi table
+#
+# Revision 1.4  2002/07/13 04:46:30  youngd
+# * Added sysconfig table
+# * Added INSERT statements for sysconfig table
+#
+# Revision 1.3  2002/07/13 04:41:41  youngd
+# * Added ChangeLog header
+#
+# ===================================================================
+
+
+CREATE TABLE accessorials (
+  assid int(4) NOT NULL auto_increment,
+  name tinytext,
+  charge float(4,2) default NULL,
+  description text,
+  carrierid mediumint(4) default NULL,
+  ap float(4,2) default NULL,
+  PRIMARY KEY  (assid)
+);
+
+
+CREATE TABLE acctmanagers (
+  acctmgrid int(3) NOT NULL auto_increment,
+  name mediumtext,
+  phone varchar(15) default NULL,
+  email varchar(50) default NULL,
+  PRIMARY KEY  (acctmgrid)
+);
+
+
+CREATE TABLE acctmgrs (
+  custid mediumint(8) NOT NULL default '0',
+  acctmgrid int(3) default NULL,
+  PRIMARY KEY  (custid)
+);
+
+
+CREATE TABLE address (
+  addressid mediumint(10) NOT NULL auto_increment,
+  company tinytext,
+  address1 tinytext,
+  address2 tinytext,
+  city tinytext,
+  state char(2) default NULL,
+  zip varchar(5) default NULL,
+  custid mediumint(8) unsigned default NULL,
+  contact tinytext,
+  phone tinytext,
+  email tinytext,
+  PRIMARY KEY  (addressid)
+);
+
+
+CREATE TABLE browser (
+  customerid mediumint(8) unsigned default NULL,
+  browser text
+);
+
+
+CREATE TABLE carriers (
+  carrierid mediumint(4) NOT NULL auto_increment,
+  name tinytext,
+  discount int(2) default NULL,
+  scac varchar(4) default NULL,
+  type int(1) default NULL,
+  description text,
+  minimum float(4,2) default NULL,
+  ccscac varchar(4) default NULL,
+  ormargin int(2) default '-1',
+  PRIMARY KEY  (carrierid)
+);
+
+
+CREATE TABLE customers (
+  custid mediumint(8) unsigned NOT NULL auto_increment,
+  name tinytext,
+  email tinytext,
+  company tinytext,
+  password tinytext,
+  regdate datetime default NULL,
+  lastlogindate datetime default NULL,
+  lastloginip varchar(15) default NULL,
+  loginstring varchar(20) default NULL,
+  margin int(2) default NULL,
+  phone varchar(20) default NULL,
+  PRIMARY KEY  (custid)
+);
+
+
+CREATE TABLE digiship (
+  mainphone tinytext,
+  faxphone tinytext,
+  minimumupgrade float(4,2) default NULL,
+  defaultcustomermargin int(2) default NULL,
+  companyname text,
+  address1 text,
+  address2 text,
+  city text,
+  state char(2) default NULL,
+  zip int(5) default NULL
+);
+
+
+CREATE TABLE edi (
+  enabled smallint(2) NOT NULL,
+  mode smallint(2) NOT NULL,
+  214_template blob,
+  204_template blob
+);
+
+
+CREATE TABLE mailinglist ( 
+  id int(3) unsigned NOT NULL auto_increment, 
+  active int(10) unsigned default '1', 
+  email varchar(64) default NULL, 
+  sent int(3) unsigned default '0', 
+  senddate datetime default NULL, 
+  PRIMARY KEY  (id), 
+  UNIQUE KEY id (id)  
+);
+
+
+CREATE TABLE quotenotes (
+  quoteid mediumint(9) NOT NULL default '0',
+  carrier mediumtext,
+  id mediumtext,
+  PRIMARY KEY  (quoteid)
+);
+
+
+CREATE TABLE quotes (
+  quoteid mediumint(10) NOT NULL auto_increment,
+  customerid mediumint(8) default NULL,
+  carrierid mediumint(4) default NULL,
+  origin char(5) default NULL,
+  destination char(5) default NULL,
+  weight mediumint(5) default NULL,
+  class mediumint(3) default NULL,
+  baserate float(6,2) default NULL,
+  ap float(6,2) default NULL,
+  ar float(6,2) default NULL,
+  date datetime default NULL,
+  save int(1) default NULL,
+  transit int(2) default NULL,
+  booked int(1) default '0',
+  PRIMARY KEY  (quoteid)
+);
+
+
+CREATE TABLE shipment (
+  shipmentid mediumint(10) NOT NULL auto_increment,
+  origin mediumint(10) default NULL,
+  destination mediumint(10) default NULL,
+  quoteid mediumint(10) default NULL,
+  customerid mediumint(10) default NULL,
+  carrierid mediumint(10) default NULL,
+  billing mediumint(10) default NULL,
+  finalar float(6,2) default NULL,
+  finalap float(6,2) default NULL,
+  pickupdate date default NULL,
+  carrierbooked int(1) default '0',
+  submitdate datetime default NULL,
+  carrierbookeddate date default NULL,
+  pickupbefore time default NULL,
+  ponumber text,
+  hazmat char(1) default NULL,
+  hazmatphone tinytext,
+  units int(3) default NULL,
+  productdescription text,
+  pickupafter time default NULL,
+  deliveryest date default NULL,
+  delivered int(1) default '0',
+  deliverdate date default NULL,
+  carrierpro mediumtext,
+  specialinstructions text,
+  PRIMARY KEY  (shipmentid)
+);
+
+
+CREATE TABLE shipmentaccessorials (
+  shipmentid mediumint(10) default NULL,
+  assid int(4) default NULL
+);
+
+
+CREATE TABLE shipmentstatus (
+  statusid mediumint(20) NOT NULL auto_increment,
+  shipmentid mediumint(10) default NULL,
+  statusdetails text,
+  statuscode int(2) default NULL,
+  xmlstore text,
+  statustime datetime default NULL,
+  PRIMARY KEY  (statusid)
+);
+
+
+CREATE TABLE shipmentstatuscodes (
+  statuscode int(2) NOT NULL default '0',
+  statusdetails text,
+  PRIMARY KEY  (statuscode)
+);
+
+
+CREATE TABLE sysconfig (
+  var varchar(64) NOT NULL,
+  val varchar(64) NOT NULL
+);
+
+
+CREATE TABLE userprofiles (
+  sectionid int(11) NOT NULL default '0',
+  username mediumtext,
+  headline mediumtext,
+  image mediumtext,
+  quote mediumtext,
+  thetext text,
+  PRIMARY KEY  (sectionid)
+);
+
+
+CREATE TABLE zipcitystate (
+  zip int(5) unsigned zerofill NOT NULL default '00000',
+  city tinytext,
+  state char(2) default NULL,
+  PRIMARY KEY  (zip),
+  UNIQUE KEY zip (zip)
+);
+
+
+CREATE TABLE zips (
+  carrierid mediumint(4) NOT NULL default '0',
+  zip int(5) unsigned zerofill NOT NULL default '00000',
+  PRIMARY KEY  (carrierid,zip),
+  UNIQUE KEY carrierid (carrierid,zip)
+);
+
+
+CREATE TABLE zips2 (
+  carrierid mediumint(4) NOT NULL default '0',
+  zip int(5) unsigned zerofill NOT NULL default '00000',
+  PRIMARY KEY  (carrierid,zip),
+  UNIQUE KEY carrierid (carrierid,zip)
+);
+
+
+
+# -------------------------------------------------------------------
+#                      D E F A U L T   D A T A
+# -------------------------------------------------------------------
+
+INSERT INTO edi VALUES (1, 'manual', '', '');
+
+INSERT INTO sysconfig VALUES ('schema_revision', %SCHEMA_REVISION%);
+INSERT INTO sysconfig VALUES ('schema_installed', SYSDATE());

@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>Digiship::Error</TITLE>
+<LINK REL="stylesheet" HREF="pod.css" TYPE="text/css">
+<LINK REV="made" HREF="mailto:root@fett.internal.younghome.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#description">DESCRIPTION</A></LI>
+	<LI><A HREF="#installation">INSTALLATION</A></LI>
+	<LI><A HREF="#methods">METHODS</A></LI>
+	<LI><A HREF="#usage">USAGE</A></LI>
+	<LI><A HREF="#example output">EXAMPLE OUTPUT</A></LI>
+	<LI><A HREF="#version">VERSION</A></LI>
+	<LI><A HREF="#copyright">COPYRIGHT</A></LI>
+	<LI><A HREF="#authors">AUTHORS</A></LI>
+	<LI><A HREF="#see also">SEE ALSO</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>Digiship::Error</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<pre>use Digiship::Error;</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="description">DESCRIPTION</A></H1>
+<P>This module is used to implement shared error messages. Rather than create
+methods in each script or module, use this module.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="installation">INSTALLATION</A></H1>
+<P>This module is installed by default with the EDIServer application.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="methods">METHODS</A></H1>
+<li><b>setErrorLevel()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b>: Sets the level of messages to print
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : String(level) [0 = off, 1 = on]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>getVersion()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Returns the version of the modue
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(version)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>getName()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Returns the name of the module
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>printError()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a properly formatted debug message to STDERR
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : String(type), String(message)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Valid types are:<br>
+<ul>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; general  - Minor errors<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; api      - Application interface error messages<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; critical - Errors that will cause transaction failures<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; fatal    - Errors that could crash the application
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>generalError()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a general error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>apiError()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints an API error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>criticalError()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a critical error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><li><b>fatalError()</b></li><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a fatal error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="usage">USAGE</A></H1>
+<pre>
+# Load the module
+use Digiship::Error;
+<br>
+# Create a new instance of it
+$Error = Digiship::Error->new();
+<br>
+# Set the error level to 1
+$Error->setErrorLevel(1);
+<br>
+# There are a few ways to call printError
+$Error->printError("general", "General error");
+$Error->printError("api", "API Error");
+$Error->printError("critical", "Critical Error");
+$Error->printError("fatal", "Fatal Error");
+<br>
+# These are just direct methods of calling the above
+$Error->generalError("General Error");
+$Error->apiError("API Error");
+$Error->criticalError("Critical Error");
+$Error->fatalError("Fatal Error");
+<br>
+</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="example output">EXAMPLE OUTPUT</A></H1>
+<pre>
+Calling Error->getName() [OK] Got: "Digiship Error Module"
+Calling Error->getVersion() [OK] Got: "1.6"
+Calling Error->printError(general): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;GeneralError&gt;  [OK]
+Calling Error->printError(api): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;APIError&gt;  [OK]
+Calling Error->printError(critical): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;CriticalError&gt;  [OK]
+Calling Error->printError(fatal): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;FatalError&gt;  [OK]
+Calling Error->generalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;GeneralError&gt;  [OK]
+Calling Error->apiError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;APIError&gt;  [OK]
+Calling Error->criticalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;CriticalError&gt;  [OK]
+Calling Error->fatalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &ltFatalError&gt;  [OK]
+</pre><P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="version">VERSION</A></H1>
+<P>$Id: Error.html,v 1.1.1.1 2002/07/13 04:30:34 youngd Exp $</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="copyright">COPYRIGHT</A></H1>
+<P>Contents Copyright (c) Digiship Corp.</P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="authors">AUTHORS</A></H1>
+<P>Darren Young <A HREF="mailto:[darren_young@yahoo.com]">[darren_young@yahoo.com]</A></P>
+<P>
+<A HREF="#__index__"><SMALL>Top</SMALL></A>
+<HR>
+<H1><A NAME="see also">SEE ALSO</A></H1>
+<P><A HREF="/docs/Digiship/Debug.html">the Digiship::Debug manpage</A></P>
+<P><A HREF="#__index__"><SMALL>Top</SMALL></A></P>
+
+</BODY>
+
+</HTML>

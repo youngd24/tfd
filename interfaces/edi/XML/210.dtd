@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     210.dtd
+
+     XMLEDI 210 Document Type Definition
+
+     $Id: 210.dtd,v 1.1 2003/01/03 22:57:46 youngd Exp $
+
+     Contents Copyright (c) 2002, 2003 The Freight Depot
+
+     Darren Young [darren_young@yahoo.com]
+-->
+
+<!ELEMENT xmledi (transmission, invoice+)>
+<!ATTLIST xmledi doctype CDATA #REQUIRED >
+
+    <!ELEMENT transmission (sender, receiver, date, time)>
+    <!ATTLIST transmission transmissionid CDATA #REQUIRED >
+        <!ELEMENT sender (#PCDATA)>
+        <!ELEMENT receiver (#PCDATA)>
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT time (#PCDATA)>
+
+    <!ELEMENT invoice (header, currency, remarks, parties, items)>
+        <!ELEMENT header (invoicenumber, pronumber, bolnumber, ponumber, paymentmethod, weightunit, pickupdate, deliverydate, billingdate, totalweight, totalcharges, totalpieces)>
+            <!ELEMENT invoicenumber (#PCDATA)>
+            <!ELEMENT pronumber (#PCDATA)>
+            <!ELEMENT bolnumber (#PCDATA)>
+            <!ELEMENT ponumber (#PCDATA)>
+            <!ELEMENT paymentmethod (#PCDATA)>
+            <!ELEMENT weightunit (#PCDATA)>
+            <!ELEMENT pickupdate (#PCDATA)>
+            <!ELEMENT deliverydate (#PCDATA)>
+            <!ELEMENT billingdate (#PCDATA)>
+            <!ELEMENT totalweight (#PCDATA)>
+            <!ELEMENT totalcharges (#PCDATA)>
+            <!ELEMENT totalpieces (#PCDATA)>
+
+    <!ELEMENT currency (code, exchrate)>
+        <!ELEMENT code (#PCDATA)>
+        <!ELEMENT exchrate (#PCDATA)>
+
+    <!ELEMENT remarks (message)>
+        <!ELEMENT message (#PCDATA)>
+
+    <!ELEMENT parties (party+)>
+        <!ELEMENT party (name, address, city, stateprovince, postalcode, countrycode)>
+        <!ATTLIST party type CDATA #REQUIRED >
+            <!ELEMENT name (#PCDATA)>
+            <!ELEMENT address (#PCDATA)>
+            <!ELEMENT city (#PCDATA)>
+            <!ELEMENT stateprovince (#PCDATA)>
+            <!ELEMENT postalcode (#PCDATA)>
+            <!ELEMENT countrycode (#PCDATA)>
+
+    <!ELEMENT items (item+)>
+        <!ELEMENT item (description, billedquantity, ladingquantity, weight, weightunit, class, charges, specialcharges)>
+        <!ATTLIST item id CDATA #REQUIRED >
+            <!ELEMENT description (#PCDATA)>
+            <!ELEMENT billedquantity (#PCDATA)>
+            <!ELEMENT ladingquantity (#PCDATA)>
+            <!ELEMENT weight (#PCDATA)>
+            <!ELEMENT weightunit (#PCDATA)>
+            <!ELEMENT class (#PCDATA)>
+            <!ELEMENT charges (#PCDATA)>
+            <!ELEMENT specialcharges (#PCDATA)>

@@ -1,0 +1,214 @@
+# ============================================================================
+#
+# Error.pod
+#
+# POD Documentation for the Digiship::Error module
+#
+# $Id: Error.pod,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+#
+# Contents Copyright (c) 2000-2002 Digiship Corp.
+#
+# Darren Young
+# darren_young@yahoo.com
+#
+# ============================================================================
+
+=head1 NAME
+
+Digiship::Error
+
+=head1 SYNOPSIS
+
+=for html
+<pre>use Digiship::Error;</pre>
+
+=head1 DESCRIPTION
+
+This module is used to implement shared error messages. Rather than create
+methods in each script or module, use this module. 
+
+=head1 INSTALLATION
+
+This module is installed by default with the EDIServer application.
+
+=head1 METHODS
+
+=for html
+<li><b>setErrorLevel()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b>: Sets the level of messages to print
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : String(level) [0 = off, 1 = on]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=for html
+<li><b>getVersion()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Returns the version of the modue
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(version)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=for html
+<li><b>getName()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Returns the name of the module
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: None
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=for html
+<li><b>printError()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a properly formatted debug message to STDERR
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b> : String(type), String(message)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Valid types are:<br>
+<ul>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; general  - Minor errors<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; api      - Application interface error messages<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; critical - Errors that will cause transaction failures<br>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; fatal    - Errors that could crash the application
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : String(Name)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=for html
+<li><b>generalError()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a general error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+
+=for html
+<li><b>apiError()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints an API error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+
+=for html
+<li><b>criticalError()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a critical error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=for html
+<li><b>fatalError()</b></li>
+
+=for html <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>DESCRIPTION</b> : Prints a fatal error message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>ARGUMENTS</b>: String(message)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>RETURNS</b> : 0 or 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>NOTES</b> : None
+<br>
+<br>
+
+=head1 USAGE
+
+=for html
+<pre>
+# Load the module
+use Digiship::Error;
+<br>
+# Create a new instance of it
+$Error = Digiship::Error->new();
+<br>
+# Set the error level to 1
+$Error->setErrorLevel(1);
+<br>
+# There are a few ways to call printError
+$Error->printError("general", "General error");
+$Error->printError("api", "API Error");
+$Error->printError("critical", "Critical Error");
+$Error->printError("fatal", "Fatal Error");
+<br>
+# These are just direct methods of calling the above
+$Error->generalError("General Error");
+$Error->apiError("API Error");
+$Error->criticalError("Critical Error");
+$Error->fatalError("Fatal Error");
+<br>
+</pre>
+
+=head1 EXAMPLE OUTPUT
+
+=for html
+<pre>
+Calling Error->getName() [OK] Got: "Digiship Error Module"
+Calling Error->getVersion() [OK] Got: "1.6"
+Calling Error->printError(general): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;GeneralError&gt;  [OK]
+Calling Error->printError(api): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;APIError&gt;  [OK]
+Calling Error->printError(critical): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;CriticalError&gt;  [OK]
+Calling Error->printError(fatal): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;FatalError&gt;  [OK]
+Calling Error->generalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;GeneralError&gt;  [OK]
+Calling Error->apiError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;APIError&gt;  [OK]
+Calling Error->criticalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &lt;CriticalError&gt;  [OK]
+Calling Error->fatalError(): &lt;Sun Feb 10 21:02:00 2002&gt; &ltFatalError&gt;  [OK]
+</pre>
+
+=head1 VERSION
+
+$Id: Error.pod,v 1.1.1.1 2002/07/13 04:30:35 youngd Exp $
+
+=head1 COPYRIGHT
+
+Contents Copyright (c) Digiship Corp.
+
+=head1 AUTHORS
+
+Darren Young [darren_young@yahoo.com]
+
+=head1 SEE ALSO
+
+L<Digiship::Debug>

@@ -1,0 +1,21 @@
+# =============================================================================
+#
+# cookies.txt
+#
+# Documentation for cookies used on the Freight Depot Site
+#
+# $Id: cookies.txt,v 1.1 2003/01/24 17:17:20 youngd Exp $
+#
+# Contents Copyright (c) 2002-2003, The Freight Depot
+#
+# Darren Young [darren_young@yahoo.com]
+#
+# =============================================================================
+#
+# ChangeLog
+#
+# $Log: cookies.txt,v $
+# Revision 1.1  2003/01/24 17:17:20  youngd
+#   * Initial version.
+#
+# =============================================================================

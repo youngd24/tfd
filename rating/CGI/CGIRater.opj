@@ -1,0 +1,80 @@
+<OptiPerl_Project>
+  <Version>
+    1
+  </Version>
+  <Host>
+    www.thefreightdepot.com
+  </Host>
+  <Path>
+    /usr/local/apache/cgi-bin
+  </Path>
+  <Username>
+    youngd
+  </Username>
+  <Password>
+    m7GlZxANyg==
+  </Password>
+  <Port>
+    21
+  </Port>
+  <Shebang>
+    #!/usr/local/bin/perl
+  </Shebang>
+  <ChangeShebang>
+    -1
+  </ChangeShebang>
+  <ChangeVersion>
+    -1
+  </ChangeVersion>
+  <RootPath>
+    C:\Program Files\Apache Group\Apache\htdocs
+  </RootPath>
+  <FWHost />
+  <FWUser />
+  <FWPassword />
+  <FWPort>
+    0
+  </FWPort>
+  <FWType>
+    1
+  </FWType>
+  <Passive>
+    0
+  </Passive>
+  <Authenticate>
+    0
+  </Authenticate>
+  <OverrideProj>
+    -1
+  </OverrideProj>
+  <AccessLogFile>
+    "C:\Program Files\Apache Group\Apache\logs\access.log"
+  </AccessLogFile>
+  <ErrorLogFile>
+    "C:\Program Files\Apache Group\Apache\logs\error.log"
+  </ErrorLogFile>
+  <ExtServerCGI>
+    c:\perl
+  </ExtServerCGI>
+  <ExtServerHTML>
+    c:\perl\htdocs
+  </ExtServerHTML>
+  <Project_Item>
+    <Filename>
+      rater.cgi
+    </Filename>
+    <Path />
+    <Mode>
+      755
+    </Mode>
+    <Publish>
+      Yes
+    </Publish>
+    <Transfer>
+      Bin
+    </Transfer>
+    <Crc32>
+      -2091306778
+    </Crc32>
+  </Project_Item>
+</OptiPerl_Project>

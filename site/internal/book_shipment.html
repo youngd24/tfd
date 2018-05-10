@@ -1,0 +1,530 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Create New Shipment</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><font size="5" face="Verdana"><strong><u>BOOK
+NEW SHIPMENT</u></strong></font></p>
+
+<form method="POST">
+    <table border="0" cellpadding="2">
+        <tr>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>GENERAL
+            INFORMATION</u></strong></font></p>
+            </td>
+            <td bgcolor="#FFFFFF">&nbsp;</td>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>CARRIER
+            INFORMATION</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>HAZMAT INFORMATION</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">SHIPMENT
+            TYPE:</font></p>
+            </td>
+            <td><select name="shipment_type" size="1">
+                <option value="LTL">Less Than Truckload</option>
+                <option value="TL">Truckload</option>
+            </select></td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">edit</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ID:</font></p>
+            </td>
+            <td><font face="Verdana"><input type="text" size="20"
+            name="carrierid"></font></td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">HAZMAT:</font></p>
+            </td>
+            <td><input type="checkbox" name="C1"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CUSTOMER
+            ID:</font></p>
+            </td>
+            <td><input type="text" size="10" name="T24"></td>
+            <td><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">NAME:</font></p>
+            </td>
+            <td><p align="left"><input type="text" size="20"
+            name="T22"></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">PHONE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T23"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">WEIGHT</font></p>
+            </td>
+            <td><input type="text" size="10" name="T35"> <font
+            size="1" face="Verdana"><em>(lbs)</em></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">PRO:</font></p>
+            </td>
+            <td><p align="left"><input type="text" size="20"
+            name="T32"></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CLASS:</font></p>
+            </td>
+            <td><select name="class" size="1">
+                <option>55</option>
+                <option>60</option>
+                <option>70</option>
+            </select></td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">edit</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">BOOKED:</font></p>
+            </td>
+            <td><p align="left"><input type="checkbox" name="C2"></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>QUOTE INFORMATION</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CURRENT
+            DATE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T38"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><font size="1" face="Verdana">BOOKED DATE:</font></td>
+            <td><p align="center"><input type="text" size="20"
+            name="T36"><font size="1" face="Verdana"><em> (YYYY-MM-DD)</em></font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ID:</font></p>
+            </td>
+            <td><p align="center"><input type="text" size="10"
+            name="T37"><font size="1" face="Verdana"> </font></p>
+            </td>
+            <td><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CURRENT
+            TIME:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T39"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">TRANSIT:</font></p>
+            </td>
+            <td><input type="text" size="5" name="T41"> <font
+            size="1" face="Verdana"><em>(days)</em></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>PRODUCT DETAILS</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>PICKUP INFORMATION</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td colspan="3" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>ACCOUNTING</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">UNITS:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T25"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">DATE:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T27"><em> (YYYY-MM-DD)</em></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">AP:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T29"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">DESCRIPTION:</font></p>
+            </td>
+            <td><input type="text" size="24" name="T26"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">AFTER:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T31"> <em>(24 hr)</em></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">AR:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T30"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">SPECIAL
+            <br>
+            INSTRUCTIONS:</font></p>
+            </td>
+            <td><textarea name="S1" rows="2" cols="20"></textarea></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">BEFORE:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T28"><em> (24 hr)</em></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">BASERATE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T34"></td>
+            <td><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">get rate</font></a><font size="1"
+            face="Verdana">]</font></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">PO
+            NUMBER:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T40"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="11" bgcolor="#C0C0C0"><p align="center"><font
+            size="2" face="Verdana"><strong><u>SHIPMENT ADDRESS
+            INFORMATION</u></strong></font></p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><p align="center"><font size="2" face="Verdana"><strong><u>SOURCE</u></strong></font></p>
+            </td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td><font size="2" face="Verdana"><strong></strong></font>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="center"><font size="2" face="Verdana"><strong><u>DESTINATION</u></strong></font></p>
+            </td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td><font size="2" face="Verdana"><strong></strong></font>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="center"><font size="2" face="Verdana"><strong><u>BILLING</u></strong></font></p>
+            </td>
+            <td><p align="left"><font size="1" face="Verdana">[</font><a
+            href="book_shipment.html"><font size="1"
+            face="Verdana">lookup</font></a><font size="1"
+            face="Verdana">]</font></p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            1:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T1"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            1:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T2"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            1:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T3"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            2:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T12"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            2:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T11"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ADDRESS
+            2:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T4"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CITY:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T13"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">CITY:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T10"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">CITY:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T5"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">STATE:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T14"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">STATE:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T9"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">STATE:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T6"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">ZIP:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T15"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ZIP:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T8"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">ZIP:</font></p>
+            </td>
+            <td><font size="1" face="Verdana"><input type="text"
+            size="20" name="T7"></font></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">CONTACT:</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">CONTACT:</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">CONTACT:</font></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">NAME:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T16"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">NAME:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T18"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">NAME:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T20"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><font size="1" face="Verdana">PHONE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T17"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">PHONE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T19"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td><p align="right"><font size="1" face="Verdana">PHONE:</font></p>
+            </td>
+            <td><input type="text" size="20" name="T21"></td>
+            <td><font size="1" face="Verdana"></font>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><p align="right"><input type="submit" name="B1"
+            value="Submit"></p>
+            </td>
+            <td><input type="reset" name="B2" value="Reset"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+</form>
+</body>
+</html>

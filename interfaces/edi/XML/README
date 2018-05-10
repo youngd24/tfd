@@ -1,0 +1,9 @@
+The 204.tmpl is the master 204 template that's used to send out 204 documents.
+
+Everything in the old/ directory is just that, old. However though, those were
+the original blueprints for the xmledi formats so they might have some
+historical value.
+
+The perl scripts in there (the old/ dir) were ones that were created to test 
+Perl's ability to read and parse XML. Some of it might be of some use, at
+least for learning Perl's XML::DOM parser and such.

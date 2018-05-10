@@ -1,0 +1,62 @@
+=====================================================================
+
+                           The Freight Depot
+
+                            DATABASE README
+
+            $Id: README,v 1.4 2002/07/13 07:55:13 youngd Exp $
+
+                            Darren Young
+                         darren@younghome.com
+
+=====================================================================
+
+
+BACKUPS
+-------
+
+
+
+SCHEMA MODIFICATIONS
+--------------------
+
+    The file in this directory (tfd.schema) is the master schema for
+all development and production databases. The only data that should be
+contained in the master schema is information considered to be default
+data. Anything else should come from the production machine after a
+new schema has been installed. Examples of this type of data are
+system configuration information, company data, etc.
+
+    The schema contains a table called sysconfig that is used to house
+static configuration data on a per environment basis. There are only 2
+fields in this table, var and val. Var is a system configuration
+variable and val is the value assigned to it. The only variables and
+values we are concerned with when it comes to the schema are
+schema_version and schema_installed. The version is used to identify
+the current version of the schema in use. The installed variable
+contains the system date/time that the schema was installed. The value
+of the SYSDATE() function is used to populate this field on load.
+
+    So, how do you make changes to the schema and what do you do with
+it when you're done? If you really care, read on.
+
+    Modifications to the schema can be done in whatever method using
+whatever tools you want. I personally use vi on a UNIX machine to make
+changes, others use pretty graphical tools. It doesn't really matter,
+they both achieve the same results.
+
+    When you're done with your changes and are fairly sure they work,
+commit the file back to CVS. Make sure you add a change entry and that
+the text that you add actually describes the changes you made. Don't
+use something like 'update'.
+
+    Now, whatever you do don't change the value of the schema_revision
+field in the schema file, it'll be updated for you automagically
+during the next step. The same goes for the schema_installed
+information, don't touch it. That one will be updated in the database
+via the sysdate() function during the actual import.
+
+
+
+INSTALLING NEW SCHEMAS
+----------------------
