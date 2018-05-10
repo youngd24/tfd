@@ -9,7 +9,27 @@ The code here is REALLY old, like 15+ years old, and likely won't even work on a
 ## Structure
 
 ```
+CVS             - Old CVS directory
 CarrierData
+ChangeLog
+Makefile
+README
+README.md
+VERSION
+apache
+database
+docs
+includes.mk
+interfaces
+marketing
+modules
+quote.dtd
+rating
+site
+sysconfig
+test
+third-party
+tools
 ```
 
 ### Prerequisites
