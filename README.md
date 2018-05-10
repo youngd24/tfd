@@ -10,27 +10,29 @@ The code here is REALLY old, like 15+ years old, and likely won't even work on a
 
 ```
 CVS             - Old CVS directory
-CarrierData
-ChangeLog
-Makefile
-README
-README.md
-VERSION
-apache
-database
-docs
-includes.mk
-interfaces
-marketing
-modules
-quote.dtd
-rating
-site
-sysconfig
-test
-third-party
-tools
+CarrierData     - Data from carriers on rates, services, etc. Raw to be parsed
+ChangeLog       - Um, a change log
+Makefile        - Makefile
+README          - An empty thing, guess I didn't want to tell anyone
+README.md       - This file
+VERSION         - Release version of the entire thing
+apache          - Apache HTTP server related config files
+database        - The database behind the whole thing
+docs            - Misc docs
+includes.mk     - I don't remember
+interfaces      - Various interfaces, notable the EDI one
+marketing       - Spam, spam and more spam.
+modules         - Libraries to include in
+quote.dtd       - DTD for LTL freight quotes
+rating          - The shipment rating system
+site            - The main web site
+sysconfig       - Various system configs
+test            - Tests
+third-party     - Third-part things
+tools           - Various tools
 ```
+
+I'm trying to include README.md's in each directory as time goes on, mainly so I can see what I was doing at the time.
 
 ### Prerequisites
 
